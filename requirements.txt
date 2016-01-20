@@ -1,0 +1,3 @@
+transitfeed==1.2.14
+simplejson==3.8.1
+pytz==2015.7

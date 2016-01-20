@@ -1,0 +1,925 @@
+@prefix : <http://www.gp.com/ontologies/transit/#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.gp.com/ontologies/transit/> .
+
+<http://www.gp.com/ontologies/transit/> rdf:type owl:Ontology ;
+                                        
+                                        owl:imports <http://www.w3.org/2006/time> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://www.gp.com/ontologies/transit/providesFeed
+
+<http://www.gp.com/ontologies/transit/providesFeed> rdf:type owl:AnnotationProperty ;
+                                                    
+                                                    rdfs:subPropertyOf rdfs:comment .
+
+
+
+
+
+#################################################################
+#
+#    Datatypes
+#
+#################################################################
+
+
+###  http://www.w3.org/2001/XMLSchema#date
+
+xsd:date rdf:type rdfs:Datatype .
+
+
+
+###  http://www.w3.org/2001/XMLSchema#duration
+
+xsd:duration rdf:type rdfs:Datatype .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.gp.com/ontologies/transit/agency
+
+<http://www.gp.com/ontologies/transit/agency> rdf:type owl:ObjectProperty ;
+                                              
+                                              rdfs:range <http://www.gp.com/ontologies/transit/Agency> ;
+                                              
+                                              rdfs:domain <http://www.gp.com/ontologies/transit/OperatingAgencies> .
+
+
+
+###  http://www.gp.com/ontologies/transit/bicycleAccessibility
+
+<http://www.gp.com/ontologies/transit/bicycleAccessibility> rdf:type owl:ObjectProperty ;
+                                                            
+                                                            rdfs:range <http://www.gp.com/ontologies/transit/BicycleAccessibility> ;
+                                                            
+                                                            rdfs:domain <http://www.gp.com/ontologies/transit/Trip> .
+
+
+
+###  http://www.gp.com/ontologies/transit/contains
+
+<http://www.gp.com/ontologies/transit/contains> rdf:type owl:ObjectProperty ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/Station> ;
+                                                
+                                                rdfs:range <http://www.gp.com/ontologies/transit/Stop> .
+
+
+
+###  http://www.gp.com/ontologies/transit/farePricing
+
+<http://www.gp.com/ontologies/transit/farePricing> rdf:type owl:ObjectProperty ;
+                                                   
+                                                   rdfs:domain <http://www.gp.com/ontologies/transit/Fare> ;
+                                                   
+                                                   rdfs:range <http://www.gp.com/ontologies/transit/FarePricing> .
+
+
+
+###  http://www.gp.com/ontologies/transit/fareTransfer
+
+<http://www.gp.com/ontologies/transit/fareTransfer> rdf:type owl:ObjectProperty ;
+                                                    
+                                                    rdfs:domain <http://www.gp.com/ontologies/transit/Fare> ;
+                                                    
+                                                    rdfs:range <http://www.gp.com/ontologies/transit/FareTransfer> .
+
+
+
+###  http://www.gp.com/ontologies/transit/frequency
+
+<http://www.gp.com/ontologies/transit/frequency> rdf:type owl:ObjectProperty ;
+                                                 
+                                                 rdfs:range <http://www.gp.com/ontologies/transit/Frequency> ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/Trip> .
+
+
+
+###  http://www.gp.com/ontologies/transit/fromStop
+
+<http://www.gp.com/ontologies/transit/fromStop> rdf:type owl:ObjectProperty ;
+                                                
+                                                rdfs:range <http://www.gp.com/ontologies/transit/Stop> ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/Transfer> .
+
+
+
+###  http://www.gp.com/ontologies/transit/hasShapePointSequence
+
+<http://www.gp.com/ontologies/transit/hasShapePointSequence> rdf:type owl:ObjectProperty ;
+                                                             
+                                                             rdfs:domain <http://www.gp.com/ontologies/transit/Shape> ;
+                                                             
+                                                             rdfs:range <http://www.gp.com/ontologies/transit/ShapePoint> .
+
+
+
+###  http://www.gp.com/ontologies/transit/location
+
+<http://www.gp.com/ontologies/transit/location> rdf:type owl:ObjectProperty ;
+                                                
+                                                rdfs:range <http://www.gp.com/ontologies/transit/Location> ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/ShapePoint> ,
+                                                            <http://www.gp.com/ontologies/transit/Stop> .
+
+
+
+###  http://www.gp.com/ontologies/transit/nextShapePoint
+
+<http://www.gp.com/ontologies/transit/nextShapePoint> rdf:type owl:ObjectProperty ;
+                                                      
+                                                      rdfs:domain <http://www.gp.com/ontologies/transit/ShapePoint> ;
+                                                      
+                                                      rdfs:range <http://www.gp.com/ontologies/transit/ShapePoint> .
+
+
+
+###  http://www.gp.com/ontologies/transit/operates
+
+<http://www.gp.com/ontologies/transit/operates> rdf:type owl:ObjectProperty ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/Agency> ;
+                                                
+                                                rdfs:range <http://www.gp.com/ontologies/transit/Route> .
+
+
+
+###  http://www.gp.com/ontologies/transit/operatingAgencies
+
+<http://www.gp.com/ontologies/transit/operatingAgencies> rdf:type owl:ObjectProperty ;
+                                                         
+                                                         rdfs:domain <http://www.gp.com/ontologies/transit/Feed> ;
+                                                         
+                                                         rdfs:range <http://www.gp.com/ontologies/transit/OperatingAgencies> .
+
+
+
+###  http://www.gp.com/ontologies/transit/periodException
+
+<http://www.gp.com/ontologies/transit/periodException> rdf:type owl:ObjectProperty ;
+                                                       
+                                                       rdfs:range <http://www.gp.com/ontologies/transit/PeriodException> ;
+                                                       
+                                                       rdfs:domain <http://www.gp.com/ontologies/transit/ServicePeriod> .
+
+
+
+###  http://www.gp.com/ontologies/transit/publisher
+
+<http://www.gp.com/ontologies/transit/publisher> rdf:type owl:ObjectProperty ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/Feed> ;
+                                                 
+                                                 rdfs:range <http://www.gp.com/ontologies/transit/Publisher> .
+
+
+
+###  http://www.gp.com/ontologies/transit/service
+
+<http://www.gp.com/ontologies/transit/service> rdf:type owl:ObjectProperty ;
+                                               
+                                               rdfs:range <http://www.gp.com/ontologies/transit/Service> ;
+                                               
+                                               rdfs:domain <http://www.gp.com/ontologies/transit/Trip> .
+
+
+
+###  http://www.gp.com/ontologies/transit/servicePeriod
+
+<http://www.gp.com/ontologies/transit/servicePeriod> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     rdfs:domain <http://www.gp.com/ontologies/transit/Service> ;
+                                                     
+                                                     rdfs:range <http://www.gp.com/ontologies/transit/ServicePeriod> .
+
+
+
+###  http://www.gp.com/ontologies/transit/shape
+
+<http://www.gp.com/ontologies/transit/shape> rdf:type owl:ObjectProperty ;
+                                             
+                                             rdfs:range <http://www.gp.com/ontologies/transit/Shape> ;
+                                             
+                                             rdfs:domain <http://www.gp.com/ontologies/transit/Trip> .
+
+
+
+###  http://www.gp.com/ontologies/transit/stop
+
+<http://www.gp.com/ontologies/transit/stop> rdf:type owl:ObjectProperty ;
+                                            
+                                            rdfs:range <http://www.gp.com/ontologies/transit/Stop> ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> .
+
+
+
+###  http://www.gp.com/ontologies/transit/stopTime
+
+<http://www.gp.com/ontologies/transit/stopTime> rdf:type owl:ObjectProperty ;
+                                                
+                                                rdfs:range <http://www.gp.com/ontologies/transit/StopTime> ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/Trip> .
+
+
+
+###  http://www.gp.com/ontologies/transit/toStop
+
+<http://www.gp.com/ontologies/transit/toStop> rdf:type owl:ObjectProperty ;
+                                              
+                                              rdfs:range <http://www.gp.com/ontologies/transit/Stop> ;
+                                              
+                                              rdfs:domain <http://www.gp.com/ontologies/transit/Transfer> .
+
+
+
+###  http://www.gp.com/ontologies/transit/transportType
+
+<http://www.gp.com/ontologies/transit/transportType> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     rdfs:domain <http://www.gp.com/ontologies/transit/Route> ;
+                                                     
+                                                     rdfs:range <http://www.gp.com/ontologies/transit/Transport> .
+
+
+
+###  http://www.gp.com/ontologies/transit/trip
+
+<http://www.gp.com/ontologies/transit/trip> rdf:type owl:ObjectProperty ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/Route> ;
+                                            
+                                            rdfs:range <http://www.gp.com/ontologies/transit/Trip> .
+
+
+
+###  http://www.gp.com/ontologies/transit/weekday
+
+<http://www.gp.com/ontologies/transit/weekday> rdf:type owl:ObjectProperty ;
+                                               
+                                               rdfs:domain <http://www.gp.com/ontologies/transit/WeekdayAvailability> ;
+                                               
+                                               rdfs:range <http://www.w3.org/2006/time#DayOfWeek> .
+
+
+
+###  http://www.gp.com/ontologies/transit/weekdayAvailability
+
+<http://www.gp.com/ontologies/transit/weekdayAvailability> rdf:type owl:ObjectProperty ;
+                                                           
+                                                           rdfs:domain <http://www.gp.com/ontologies/transit/Service> ;
+                                                           
+                                                           rdfs:range <http://www.gp.com/ontologies/transit/WeekdayAvailability> .
+
+
+
+###  http://www.gp.com/ontologies/transit/wheelchairAccessibility
+
+<http://www.gp.com/ontologies/transit/wheelchairAccessibility> rdf:type owl:ObjectProperty ;
+                                                               
+                                                               rdfs:domain <http://www.gp.com/ontologies/transit/Trip> ;
+                                                               
+                                                               rdfs:range <http://www.gp.com/ontologies/transit/WheelchairAccessibility> .
+
+
+
+###  http://www.gp.com/ontologies/transit/zone
+
+<http://www.gp.com/ontologies/transit/zone> rdf:type owl:ObjectProperty ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/Stop> ;
+                                            
+                                            rdfs:range <http://www.gp.com/ontologies/transit/Zone> .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.gp.com/ontologies/transit/arrivalTime
+
+<http://www.gp.com/ontologies/transit/arrivalTime> rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> ;
+                                                   
+                                                   rdfs:range xsd:duration .
+
+
+
+###  http://www.gp.com/ontologies/transit/available
+
+<http://www.gp.com/ontologies/transit/available> rdf:type owl:DatatypeProperty ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/WeekdayAvailability> ;
+                                                 
+                                                 rdfs:range xsd:boolean .
+
+
+
+###  http://www.gp.com/ontologies/transit/code
+
+<http://www.gp.com/ontologies/transit/code> rdf:type owl:DatatypeProperty ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/Stop> ;
+                                            
+                                            rdfs:range xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/currency
+
+<http://www.gp.com/ontologies/transit/currency> rdf:type owl:DatatypeProperty ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/FarePricing> ;
+                                                
+                                                rdfs:range xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/date
+
+<http://www.gp.com/ontologies/transit/date> rdf:type owl:DatatypeProperty ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/PeriodException> ;
+                                            
+                                            rdfs:range xsd:date .
+
+
+
+###  http://www.gp.com/ontologies/transit/departureTime
+
+<http://www.gp.com/ontologies/transit/departureTime> rdf:type owl:DatatypeProperty ;
+                                                     
+                                                     rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> ;
+                                                     
+                                                     rdfs:range xsd:duration .
+
+
+
+###  http://www.gp.com/ontologies/transit/description
+
+<http://www.gp.com/ontologies/transit/description> rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:domain <http://www.gp.com/ontologies/transit/Stop> ;
+                                                   
+                                                   rdfs:range xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/direction
+
+<http://www.gp.com/ontologies/transit/direction> rdf:type owl:DatatypeProperty ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/Trip> ;
+                                                 
+                                                 rdfs:range xsd:integer .
+
+
+
+###  http://www.gp.com/ontologies/transit/distanceTravelled
+
+<http://www.gp.com/ontologies/transit/distanceTravelled> rdf:type owl:DatatypeProperty ;
+                                                         
+                                                         rdfs:domain <http://www.gp.com/ontologies/transit/ShapePoint> ;
+                                                         
+                                                         rdfs:range xsd:float .
+
+
+
+###  http://www.gp.com/ontologies/transit/exceptionType
+
+<http://www.gp.com/ontologies/transit/exceptionType> rdf:type owl:DatatypeProperty ;
+                                                     
+                                                     rdfs:domain <http://www.gp.com/ontologies/transit/PeriodException> ;
+                                                     
+                                                     rdfs:range xsd:integer .
+
+
+
+###  http://www.gp.com/ontologies/transit/frequencyEnd
+
+<http://www.gp.com/ontologies/transit/frequencyEnd> rdf:type owl:DatatypeProperty ;
+                                                    
+                                                    rdfs:domain <http://www.gp.com/ontologies/transit/Frequency> ;
+                                                    
+                                                    rdfs:range xsd:duration .
+
+
+
+###  http://www.gp.com/ontologies/transit/frequencyStart
+
+<http://www.gp.com/ontologies/transit/frequencyStart> rdf:type owl:DatatypeProperty ;
+                                                      
+                                                      rdfs:domain <http://www.gp.com/ontologies/transit/Frequency> ;
+                                                      
+                                                      rdfs:range xsd:duration .
+
+
+
+###  http://www.gp.com/ontologies/transit/headsign
+
+<http://www.gp.com/ontologies/transit/headsign> rdf:type owl:DatatypeProperty ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> ,
+                                                            <http://www.gp.com/ontologies/transit/Trip> ;
+                                                
+                                                rdfs:range xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/headway
+
+<http://www.gp.com/ontologies/transit/headway> rdf:type owl:DatatypeProperty ;
+                                               
+                                               rdfs:domain <http://www.gp.com/ontologies/transit/Frequency> ;
+                                               
+                                               rdfs:range xsd:duration .
+
+
+
+###  http://www.gp.com/ontologies/transit/id
+
+<http://www.gp.com/ontologies/transit/id> rdf:type owl:DatatypeProperty ;
+                                          
+                                          rdfs:range xsd:string ;
+                                          
+                                          rdfs:domain owl:Thing .
+
+
+
+###  http://www.gp.com/ontologies/transit/latitude
+
+<http://www.gp.com/ontologies/transit/latitude> rdf:type owl:DatatypeProperty ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/Location> ;
+                                                
+                                                rdfs:range xsd:float .
+
+
+
+###  http://www.gp.com/ontologies/transit/longName
+
+<http://www.gp.com/ontologies/transit/longName> rdf:type owl:DatatypeProperty ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/Route> ;
+                                                
+                                                rdfs:range xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/longitude
+
+<http://www.gp.com/ontologies/transit/longitude> rdf:type owl:DatatypeProperty ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/Location> ;
+                                                 
+                                                 rdfs:range xsd:float .
+
+
+
+###  http://www.gp.com/ontologies/transit/minTime
+
+<http://www.gp.com/ontologies/transit/minTime> rdf:type owl:DatatypeProperty ;
+                                               
+                                               rdfs:domain <http://www.gp.com/ontologies/transit/Transfer> ;
+                                               
+                                               rdfs:range xsd:duration .
+
+
+
+###  http://www.gp.com/ontologies/transit/name
+
+<http://www.gp.com/ontologies/transit/name> rdf:type owl:DatatypeProperty ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/Agency> ,
+                                                        <http://www.gp.com/ontologies/transit/Station> ,
+                                                        <http://www.gp.com/ontologies/transit/Stop> ,
+                                                        <http://www.gp.com/ontologies/transit/Transport> ;
+                                            
+                                            rdfs:range xsd:Name .
+
+
+
+###  http://www.gp.com/ontologies/transit/paymentMethod
+
+<http://www.gp.com/ontologies/transit/paymentMethod> rdf:type owl:DatatypeProperty ;
+                                                     
+                                                     rdfs:domain <http://www.gp.com/ontologies/transit/FarePricing> ;
+                                                     
+                                                     rdfs:range xsd:integer .
+
+
+
+###  http://www.gp.com/ontologies/transit/periodEnd
+
+<http://www.gp.com/ontologies/transit/periodEnd> rdf:type owl:DatatypeProperty ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/ServicePeriod> ,
+                                                             <http://www.gp.com/ontologies/transit/ValidityPeriod> ;
+                                                 
+                                                 rdfs:range xsd:date .
+
+
+
+###  http://www.gp.com/ontologies/transit/periodStart
+
+<http://www.gp.com/ontologies/transit/periodStart> rdf:type owl:DatatypeProperty ;
+                                                   
+                                                   rdfs:domain <http://www.gp.com/ontologies/transit/ServicePeriod> ,
+                                                               <http://www.gp.com/ontologies/transit/ValidityPeriod> ;
+                                                   
+                                                   rdfs:range xsd:date .
+
+
+
+###  http://www.gp.com/ontologies/transit/price
+
+<http://www.gp.com/ontologies/transit/price> rdf:type owl:DatatypeProperty ;
+                                             
+                                             rdfs:domain <http://www.gp.com/ontologies/transit/FarePricing> ;
+                                             
+                                             rdfs:range xsd:float .
+
+
+
+###  http://www.gp.com/ontologies/transit/sequence
+
+<http://www.gp.com/ontologies/transit/sequence> rdf:type owl:DatatypeProperty ;
+                                                
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/ShapePoint> ,
+                                                            <http://www.gp.com/ontologies/transit/StopTime> ;
+                                                
+                                                rdfs:range xsd:integer .
+
+
+
+###  http://www.gp.com/ontologies/transit/shortName
+
+<http://www.gp.com/ontologies/transit/shortName> rdf:type owl:DatatypeProperty ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/Route> ;
+                                                 
+                                                 rdfs:range xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/timezone
+
+<http://www.gp.com/ontologies/transit/timezone> rdf:type owl:DatatypeProperty ;
+                                                
+                                                rdfs:range xsd:string ;
+                                                
+                                                rdfs:domain owl:Thing .
+
+
+
+###  http://www.gp.com/ontologies/transit/transferDuration
+
+<http://www.gp.com/ontologies/transit/transferDuration> rdf:type owl:DatatypeProperty ;
+                                                        
+                                                        rdfs:domain <http://www.gp.com/ontologies/transit/FareTransfer> ;
+                                                        
+                                                        rdfs:range xsd:duration .
+
+
+
+###  http://www.gp.com/ontologies/transit/transferType
+
+<http://www.gp.com/ontologies/transit/transferType> rdf:type owl:DatatypeProperty ;
+                                                    
+                                                    rdfs:domain <http://www.gp.com/ontologies/transit/Transfer> ;
+                                                    
+                                                    rdfs:range xsd:integer .
+
+
+
+###  http://www.gp.com/ontologies/transit/transfers
+
+<http://www.gp.com/ontologies/transit/transfers> rdf:type owl:DatatypeProperty ;
+                                                 
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/FareTransfer> ;
+                                                 
+                                                 rdfs:range xsd:integer .
+
+
+
+###  http://www.gp.com/ontologies/transit/url
+
+<http://www.gp.com/ontologies/transit/url> rdf:type owl:DatatypeProperty ;
+                                           
+                                           rdfs:range xsd:anyURI ;
+                                           
+                                           rdfs:domain owl:Thing .
+
+
+
+###  http://www.gp.com/ontologies/transit/version
+
+<http://www.gp.com/ontologies/transit/version> rdf:type owl:DatatypeProperty ;
+                                               
+                                               rdfs:domain <http://www.gp.com/ontologies/transit/Feed> ;
+                                               
+                                               rdfs:range xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.gp.com/ontologies/transit/Agency
+
+<http://www.gp.com/ontologies/transit/Agency> rdf:type owl:Class ;
+                                              
+                                              rdfs:label "Agency"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/BicycleAccessibility
+
+<http://www.gp.com/ontologies/transit/BicycleAccessibility> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:label "BicycleAccessibility"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Fare
+
+<http://www.gp.com/ontologies/transit/Fare> rdf:type owl:Class .
+
+
+
+###  http://www.gp.com/ontologies/transit/FarePricing
+
+<http://www.gp.com/ontologies/transit/FarePricing> rdf:type owl:Class .
+
+
+
+###  http://www.gp.com/ontologies/transit/FareTransfer
+
+<http://www.gp.com/ontologies/transit/FareTransfer> rdf:type owl:Class .
+
+
+
+###  http://www.gp.com/ontologies/transit/Feed
+
+<http://www.gp.com/ontologies/transit/Feed> rdf:type owl:Class ;
+                                            
+                                            rdfs:label "Feed"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/FinalShapePoint
+
+<http://www.gp.com/ontologies/transit/FinalShapePoint> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://www.gp.com/ontologies/transit/ShapePoint> .
+
+
+
+###  http://www.gp.com/ontologies/transit/Frequency
+
+<http://www.gp.com/ontologies/transit/Frequency> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "Frequency"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Location
+
+<http://www.gp.com/ontologies/transit/Location> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "Location"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/OperatingAgencies
+
+<http://www.gp.com/ontologies/transit/OperatingAgencies> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:label "OperatingAgencies"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/PeriodException
+
+<http://www.gp.com/ontologies/transit/PeriodException> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:label "PeriodException"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Publisher
+
+<http://www.gp.com/ontologies/transit/Publisher> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "Publisher"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Route
+
+<http://www.gp.com/ontologies/transit/Route> rdf:type owl:Class ;
+                                             
+                                             rdfs:label "Route"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/RouteType
+
+<http://www.gp.com/ontologies/transit/RouteType> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "RouteType"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Service
+
+<http://www.gp.com/ontologies/transit/Service> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "Service"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/ServicePeriod
+
+<http://www.gp.com/ontologies/transit/ServicePeriod> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:label "ServicePeriod"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Shape
+
+<http://www.gp.com/ontologies/transit/Shape> rdf:type owl:Class ;
+                                             
+                                             rdfs:label "Shape"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/ShapePoint
+
+<http://www.gp.com/ontologies/transit/ShapePoint> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:label "ShapePoint"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Station
+
+<http://www.gp.com/ontologies/transit/Station> rdf:type owl:Class ;
+                                               
+                                               rdfs:label "Station"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Stop
+
+<http://www.gp.com/ontologies/transit/Stop> rdf:type owl:Class ;
+                                            
+                                            rdfs:label "Stop"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/StopTime
+
+<http://www.gp.com/ontologies/transit/StopTime> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "StopTime"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Transfer
+
+<http://www.gp.com/ontologies/transit/Transfer> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "Transfer"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Transport
+
+<http://www.gp.com/ontologies/transit/Transport> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "Transport"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Trip
+
+<http://www.gp.com/ontologies/transit/Trip> rdf:type owl:Class ;
+                                            
+                                            rdfs:label "Trip"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/ValidityPeriod
+
+<http://www.gp.com/ontologies/transit/ValidityPeriod> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:label "ValidityPeriod"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/WeekdayAvailability
+
+<http://www.gp.com/ontologies/transit/WeekdayAvailability> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:label "WeekdayAvailability"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/WheelchairAccessibility
+
+<http://www.gp.com/ontologies/transit/WheelchairAccessibility> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:label "WheelchairAccessiblity"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/Zone
+
+<http://www.gp.com/ontologies/transit/Zone> rdf:type owl:Class ;
+                                            
+                                            rdfs:label "Zone"^^xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.gp.com/ontologies/transit/NoTransfersPermitted
+
+<http://www.gp.com/ontologies/transit/NoTransfersPermitted> rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.gp.com/ontologies/transit/TransferOnce
+
+<http://www.gp.com/ontologies/transit/TransferOnce> rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.gp.com/ontologies/transit/TransferTwice
+
+<http://www.gp.com/ontologies/transit/TransferTwice> rdf:type owl:NamedIndividual .
+
+
+
+
+
+#################################################################
+#
+#    Annotations
+#
+#################################################################
+
+
+<http://vocab.gtfs.org/terms#routeType> rdfs:label "Route Type" .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
