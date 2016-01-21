@@ -105,6 +105,14 @@
     
 
 
+    <!-- http://thinkingthread.com/ontologies/transit#country -->
+
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#country">
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Country"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://thinkingthread.com/ontologies/transit#destinationZone -->
 
     <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#destinationZone">
@@ -701,6 +709,14 @@
     
 
 
+    <!-- http://schema.org/Country -->
+
+    <owl:Class rdf:about="http://schema.org/Country">
+        <owl:equivalentClass rdf:resource="http://thinkingthread.com/ontologies/transit#Country"/>
+    </owl:Class>
+    
+
+
     <!-- http://thinkingthread.com/ontologies/transit#Agency -->
 
     <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Agency">
@@ -716,6 +732,12 @@
         <rdfs:label rdf:datatype="&xsd;string">BicycleAllowance</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Type of wheelchair accessibility provided by an entity</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://thinkingthread.com/ontologies/transit#Country -->
+
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Country"/>
     
 
 
