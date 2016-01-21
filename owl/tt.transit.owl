@@ -7,17 +7,15 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY transit "http://thinkingthread.com/ontologies/transit#" >
 ]>
 
 
-<rdf:RDF xmlns="http://www.gp.com/ontologies/transit/#"
-     xml:base="http://www.gp.com/ontologies/transit/"
+<rdf:RDF xmlns="http://thinkingthread.com/ontologies/transit#"
+     xml:base="http://thinkingthread.com/ontologies/transit"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:transit="http://thinkingthread.com/ontologies/transit#"
      xmlns:dcterms="http://purl.org/dc/terms/#">
     <owl:Ontology rdf:about="http://thinkingthread.com/ontologies/transit">
         <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
@@ -38,7 +36,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#providesFeed -->
 
-    <owl:AnnotationProperty rdf:about="&transit;providesFeed">
+    <owl:AnnotationProperty rdf:about="http://thinkingthread.com/ontologies/transit#providesFeed">
         <rdfs:subPropertyOf rdf:resource="&rdfs;comment"/>
     </owl:AnnotationProperty>
     
@@ -80,290 +78,290 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#agency -->
 
-    <owl:ObjectProperty rdf:about="&transit;agency">
-        <rdfs:range rdf:resource="&transit;Agency"/>
-        <rdfs:domain rdf:resource="&transit;OperatingAgencies"/>
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#agency">
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Agency"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#OperatingAgencies"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#bicycleAllowance -->
 
-    <owl:ObjectProperty rdf:about="&transit;bicycleAllowance">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#bicycleAllowance">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;BicycleAllowance"/>
-        <rdfs:domain rdf:resource="&transit;Trip"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#BicycleAllowance"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Trip"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#contains -->
 
-    <owl:ObjectProperty rdf:about="&transit;contains">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#contains">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Station"/>
-        <rdfs:range rdf:resource="&transit;Stop"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Station"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Stop"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#destinationZone -->
 
-    <owl:ObjectProperty rdf:about="&transit;destinationZone">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#destinationZone">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Zone"/>
-        <rdfs:domain rdf:resource="&transit;ZoneCrossFareRule"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Zone"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#ZoneCrossFareRule"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#fare -->
 
-    <owl:ObjectProperty rdf:about="&transit;fare">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#fare">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Fare"/>
-        <rdfs:domain rdf:resource="&transit;FareRule"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Fare"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#FareRule"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#farePricing -->
 
-    <owl:ObjectProperty rdf:about="&transit;farePricing">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#farePricing">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Fare"/>
-        <rdfs:range rdf:resource="&transit;FarePricing"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Fare"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#FarePricing"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#fareTransfer -->
 
-    <owl:ObjectProperty rdf:about="&transit;fareTransfer">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#fareTransfer">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Fare"/>
-        <rdfs:range rdf:resource="&transit;FareTransfer"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Fare"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#FareTransfer"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#frequency -->
 
-    <owl:ObjectProperty rdf:about="&transit;frequency">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#frequency">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Frequency"/>
-        <rdfs:domain rdf:resource="&transit;Trip"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Frequency"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Trip"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#fromStop -->
 
-    <owl:ObjectProperty rdf:about="&transit;fromStop">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#fromStop">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Stop"/>
-        <rdfs:domain rdf:resource="&transit;Transfer"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Stop"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Transfer"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#hasShapePointSequence -->
 
-    <owl:ObjectProperty rdf:about="&transit;hasShapePointSequence">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#hasShapePointSequence">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Shape"/>
-        <rdfs:range rdf:resource="&transit;ShapePoint"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Shape"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#ShapePoint"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#hasStopPoints -->
 
-    <owl:ObjectProperty rdf:about="&transit;hasStopPoints">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#hasStopPoints">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;StopPoint"/>
-        <rdfs:domain rdf:resource="&transit;StopSequence"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#StopPoint"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#StopSequence"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#location -->
 
-    <owl:ObjectProperty rdf:about="&transit;location">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#location">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Location"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Location"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#nextShapePoint -->
 
-    <owl:ObjectProperty rdf:about="&transit;nextShapePoint">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#nextShapePoint">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;ShapePoint"/>
-        <rdfs:domain rdf:resource="&transit;ShapePoint"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#ShapePoint"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#ShapePoint"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#nextStopPoint -->
 
-    <owl:ObjectProperty rdf:about="&transit;nextStopPoint">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#nextStopPoint">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;StopPoint"/>
-        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#StopPoint"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#StopPoint"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#operates -->
 
-    <owl:ObjectProperty rdf:about="&transit;operates">
-        <rdfs:domain rdf:resource="&transit;Agency"/>
-        <rdfs:range rdf:resource="&transit;Route"/>
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#operates">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Agency"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Route"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#operatingAgencies -->
 
-    <owl:ObjectProperty rdf:about="&transit;operatingAgencies">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#operatingAgencies">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Feed"/>
-        <rdfs:range rdf:resource="&transit;OperatingAgencies"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Feed"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#OperatingAgencies"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#originZone -->
 
-    <owl:ObjectProperty rdf:about="&transit;originZone">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#originZone">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Zone"/>
-        <rdfs:domain rdf:resource="&transit;ZoneCrossFareRule"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Zone"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#ZoneCrossFareRule"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#periodException -->
 
-    <owl:ObjectProperty rdf:about="&transit;periodException">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#periodException">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;PeriodException"/>
-        <rdfs:domain rdf:resource="&transit;ServicePeriod"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#PeriodException"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#ServicePeriod"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#publisher -->
 
-    <owl:ObjectProperty rdf:about="&transit;publisher">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#publisher">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Feed"/>
-        <rdfs:range rdf:resource="&transit;Publisher"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Feed"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Publisher"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#route -->
 
-    <owl:ObjectProperty rdf:about="&transit;route">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#route">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Route"/>
-        <rdfs:domain rdf:resource="&transit;RouteFareRule"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Route"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#RouteFareRule"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#service -->
 
-    <owl:ObjectProperty rdf:about="&transit;service">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#service">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Service"/>
-        <rdfs:domain rdf:resource="&transit;Trip"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Service"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Trip"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#servicePeriod -->
 
-    <owl:ObjectProperty rdf:about="&transit;servicePeriod">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#servicePeriod">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Service"/>
-        <rdfs:range rdf:resource="&transit;ServicePeriod"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Service"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#ServicePeriod"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#shape -->
 
-    <owl:ObjectProperty rdf:about="&transit;shape">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#shape">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Shape"/>
-        <rdfs:domain rdf:resource="&transit;Trip"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Shape"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Trip"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#stop -->
 
-    <owl:ObjectProperty rdf:about="&transit;stop">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#stop">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Stop"/>
-        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Stop"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#StopPoint"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#toStop -->
 
-    <owl:ObjectProperty rdf:about="&transit;toStop">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#toStop">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Stop"/>
-        <rdfs:domain rdf:resource="&transit;Transfer"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Stop"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Transfer"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#transportType -->
 
-    <owl:ObjectProperty rdf:about="&transit;transportType">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#transportType">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Route"/>
-        <rdfs:range rdf:resource="&transit;Transport"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Route"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#trip -->
 
-    <owl:ObjectProperty rdf:about="&transit;trip">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#trip">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Route"/>
-        <rdfs:range rdf:resource="&transit;Trip"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Route"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Trip"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#validityPeriod -->
 
-    <owl:ObjectProperty rdf:about="&transit;validityPeriod">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#validityPeriod">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Feed"/>
-        <rdfs:range rdf:resource="&transit;ValidityPeriod"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Feed"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#ValidityPeriod"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#weekday -->
 
-    <owl:ObjectProperty rdf:about="&transit;weekday">
-        <rdfs:domain rdf:resource="&transit;WeekdayAvailability"/>
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#weekday">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#WeekdayAvailability"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#DayOfWeek"/>
     </owl:ObjectProperty>
     
@@ -371,29 +369,29 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#weekdayAvailability -->
 
-    <owl:ObjectProperty rdf:about="&transit;weekdayAvailability">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#weekdayAvailability">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="&transit;Service"/>
-        <rdfs:range rdf:resource="&transit;WeekdayAvailability"/>
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Service"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#WeekdayAvailability"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#wheelchairAccessibility -->
 
-    <owl:ObjectProperty rdf:about="&transit;wheelchairAccessibility">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#wheelchairAccessibility">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;WheelchairAccessibility"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#WheelchairAccessibility"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#zone -->
 
-    <owl:ObjectProperty rdf:about="&transit;zone">
+    <owl:ObjectProperty rdf:about="http://thinkingthread.com/ontologies/transit#zone">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="&transit;Zone"/>
+        <rdfs:range rdf:resource="http://thinkingthread.com/ontologies/transit#Zone"/>
     </owl:ObjectProperty>
     
 
@@ -411,8 +409,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#arrivalTime -->
 
-    <owl:DatatypeProperty rdf:about="&transit;arrivalTime">
-        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#arrivalTime">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#StopPoint"/>
         <rdfs:range rdf:resource="&xsd;duration"/>
     </owl:DatatypeProperty>
     
@@ -420,8 +418,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#available -->
 
-    <owl:DatatypeProperty rdf:about="&transit;available">
-        <rdfs:domain rdf:resource="&transit;WeekdayAvailability"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#available">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#WeekdayAvailability"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -429,8 +427,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#code -->
 
-    <owl:DatatypeProperty rdf:about="&transit;code">
-        <rdfs:domain rdf:resource="&transit;Stop"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#code">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Stop"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -438,8 +436,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#currency -->
 
-    <owl:DatatypeProperty rdf:about="&transit;currency">
-        <rdfs:domain rdf:resource="&transit;FarePricing"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#currency">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#FarePricing"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -447,8 +445,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#date -->
 
-    <owl:DatatypeProperty rdf:about="&transit;date">
-        <rdfs:domain rdf:resource="&transit;PeriodException"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#date">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#PeriodException"/>
         <rdfs:range rdf:resource="&xsd;date"/>
     </owl:DatatypeProperty>
     
@@ -456,8 +454,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#departureTime -->
 
-    <owl:DatatypeProperty rdf:about="&transit;departureTime">
-        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#departureTime">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#StopPoint"/>
         <rdfs:range rdf:resource="&xsd;duration"/>
     </owl:DatatypeProperty>
     
@@ -465,8 +463,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#description -->
 
-    <owl:DatatypeProperty rdf:about="&transit;description">
-        <rdfs:domain rdf:resource="&transit;Stop"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#description">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Stop"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -474,8 +472,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#direction -->
 
-    <owl:DatatypeProperty rdf:about="&transit;direction">
-        <rdfs:domain rdf:resource="&transit;Trip"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#direction">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Trip"/>
         <rdfs:range rdf:resource="&xsd;integer"/>
     </owl:DatatypeProperty>
     
@@ -483,8 +481,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#distanceTravelled -->
 
-    <owl:DatatypeProperty rdf:about="&transit;distanceTravelled">
-        <rdfs:domain rdf:resource="&transit;ShapePoint"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#distanceTravelled">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#ShapePoint"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
@@ -492,8 +490,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#exceptionType -->
 
-    <owl:DatatypeProperty rdf:about="&transit;exceptionType">
-        <rdfs:domain rdf:resource="&transit;PeriodException"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#exceptionType">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#PeriodException"/>
         <rdfs:range rdf:resource="&xsd;integer"/>
     </owl:DatatypeProperty>
     
@@ -501,8 +499,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#frequencyEnd -->
 
-    <owl:DatatypeProperty rdf:about="&transit;frequencyEnd">
-        <rdfs:domain rdf:resource="&transit;Frequency"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#frequencyEnd">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Frequency"/>
         <rdfs:range rdf:resource="&xsd;duration"/>
     </owl:DatatypeProperty>
     
@@ -510,8 +508,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#frequencyStart -->
 
-    <owl:DatatypeProperty rdf:about="&transit;frequencyStart">
-        <rdfs:domain rdf:resource="&transit;Frequency"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#frequencyStart">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Frequency"/>
         <rdfs:range rdf:resource="&xsd;duration"/>
     </owl:DatatypeProperty>
     
@@ -519,7 +517,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#headsign -->
 
-    <owl:DatatypeProperty rdf:about="&transit;headsign">
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#headsign">
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -527,8 +525,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#headway -->
 
-    <owl:DatatypeProperty rdf:about="&transit;headway">
-        <rdfs:domain rdf:resource="&transit;Frequency"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#headway">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Frequency"/>
         <rdfs:range rdf:resource="&xsd;duration"/>
     </owl:DatatypeProperty>
     
@@ -536,7 +534,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#id -->
 
-    <owl:DatatypeProperty rdf:about="&transit;id">
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#id">
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain rdf:resource="&owl;Thing"/>
     </owl:DatatypeProperty>
@@ -545,8 +543,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#latitude -->
 
-    <owl:DatatypeProperty rdf:about="&transit;latitude">
-        <rdfs:domain rdf:resource="&transit;Location"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#latitude">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Location"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
@@ -554,8 +552,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#longName -->
 
-    <owl:DatatypeProperty rdf:about="&transit;longName">
-        <rdfs:domain rdf:resource="&transit;Route"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#longName">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Route"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -563,8 +561,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#longitude -->
 
-    <owl:DatatypeProperty rdf:about="&transit;longitude">
-        <rdfs:domain rdf:resource="&transit;Location"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#longitude">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Location"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
@@ -572,8 +570,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#minTime -->
 
-    <owl:DatatypeProperty rdf:about="&transit;minTime">
-        <rdfs:domain rdf:resource="&transit;Transfer"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#minTime">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Transfer"/>
         <rdfs:range rdf:resource="&xsd;duration"/>
     </owl:DatatypeProperty>
     
@@ -581,7 +579,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#name -->
 
-    <owl:DatatypeProperty rdf:about="&transit;name">
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#name">
         <rdfs:range rdf:resource="&xsd;Name"/>
     </owl:DatatypeProperty>
     
@@ -589,8 +587,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#paymentMethod -->
 
-    <owl:DatatypeProperty rdf:about="&transit;paymentMethod">
-        <rdfs:domain rdf:resource="&transit;FarePricing"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#paymentMethod">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#FarePricing"/>
         <rdfs:range rdf:resource="&xsd;integer"/>
     </owl:DatatypeProperty>
     
@@ -598,8 +596,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#periodEnd -->
 
-    <owl:DatatypeProperty rdf:about="&transit;periodEnd">
-        <rdfs:domain rdf:resource="&transit;Period"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#periodEnd">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Period"/>
         <rdfs:range rdf:resource="&xsd;date"/>
     </owl:DatatypeProperty>
     
@@ -607,8 +605,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#periodStart -->
 
-    <owl:DatatypeProperty rdf:about="&transit;periodStart">
-        <rdfs:domain rdf:resource="&transit;Period"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#periodStart">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Period"/>
         <rdfs:range rdf:resource="&xsd;date"/>
     </owl:DatatypeProperty>
     
@@ -616,8 +614,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#price -->
 
-    <owl:DatatypeProperty rdf:about="&transit;price">
-        <rdfs:domain rdf:resource="&transit;FarePricing"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#price">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#FarePricing"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
@@ -625,7 +623,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#sequence -->
 
-    <owl:DatatypeProperty rdf:about="&transit;sequence">
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#sequence">
         <rdfs:range rdf:resource="&xsd;integer"/>
     </owl:DatatypeProperty>
     
@@ -633,8 +631,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#shortName -->
 
-    <owl:DatatypeProperty rdf:about="&transit;shortName">
-        <rdfs:domain rdf:resource="&transit;Route"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#shortName">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Route"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -642,7 +640,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#timezone -->
 
-    <owl:DatatypeProperty rdf:about="&transit;timezone">
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#timezone">
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain rdf:resource="&owl;Thing"/>
     </owl:DatatypeProperty>
@@ -651,8 +649,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#transferDuration -->
 
-    <owl:DatatypeProperty rdf:about="&transit;transferDuration">
-        <rdfs:domain rdf:resource="&transit;FareTransfer"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#transferDuration">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#FareTransfer"/>
         <rdfs:range rdf:resource="&xsd;duration"/>
     </owl:DatatypeProperty>
     
@@ -660,8 +658,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#transferType -->
 
-    <owl:DatatypeProperty rdf:about="&transit;transferType">
-        <rdfs:domain rdf:resource="&transit;Transfer"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#transferType">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Transfer"/>
         <rdfs:range rdf:resource="&xsd;integer"/>
     </owl:DatatypeProperty>
     
@@ -669,7 +667,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#transfers -->
 
-    <owl:DatatypeProperty rdf:about="&transit;transfers">
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#transfers">
         <rdfs:range rdf:resource="&xsd;integer"/>
     </owl:DatatypeProperty>
     
@@ -677,7 +675,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#url -->
 
-    <owl:DatatypeProperty rdf:about="&transit;url">
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#url">
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -685,8 +683,8 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#version -->
 
-    <owl:DatatypeProperty rdf:about="&transit;version">
-        <rdfs:domain rdf:resource="&transit;Feed"/>
+    <owl:DatatypeProperty rdf:about="http://thinkingthread.com/ontologies/transit#version">
+        <rdfs:domain rdf:resource="http://thinkingthread.com/ontologies/transit#Feed"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -705,7 +703,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Agency -->
 
-    <owl:Class rdf:about="&transit;Agency">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Agency">
         <rdfs:label rdf:datatype="&xsd;string">Agency</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">An organisation that operates a Route</rdfs:comment>
     </owl:Class>
@@ -714,7 +712,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#BicycleAllowance -->
 
-    <owl:Class rdf:about="&transit;BicycleAllowance">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#BicycleAllowance">
         <rdfs:label rdf:datatype="&xsd;string">BicycleAllowance</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Type of wheelchair accessibility provided by an entity</rdfs:comment>
     </owl:Class>
@@ -723,7 +721,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Fare -->
 
-    <owl:Class rdf:about="&transit;Fare">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Fare">
         <rdfs:label rdf:datatype="&xsd;string">Fare</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Represents an admission entry for the usage of a service. It may apply to Zones, or Routes</rdfs:comment>
     </owl:Class>
@@ -732,7 +730,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#FarePricing -->
 
-    <owl:Class rdf:about="&transit;FarePricing">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#FarePricing">
         <rdfs:label rdf:datatype="&xsd;string">FarePricing</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Pricing of a fare ticket</rdfs:comment>
     </owl:Class>
@@ -741,7 +739,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#FareRule -->
 
-    <owl:Class rdf:about="&transit;FareRule">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#FareRule">
         <rdfs:label rdf:datatype="&xsd;string">FareRule</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Rule that defines how a fare is applied</rdfs:comment>
     </owl:Class>
@@ -750,7 +748,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#FareTransfer -->
 
-    <owl:Class rdf:about="&transit;FareTransfer">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#FareTransfer">
         <rdfs:label rdf:datatype="&xsd;string">FareTransfer</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Transfer rules/properties for a Fare</rdfs:comment>
     </owl:Class>
@@ -759,7 +757,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Feed -->
 
-    <owl:Class rdf:about="&transit;Feed">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Feed">
         <rdfs:label rdf:datatype="&xsd;string">Feed</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A GTFS feed</rdfs:comment>
     </owl:Class>
@@ -768,25 +766,25 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#FinalShapePoint -->
 
-    <owl:Class rdf:about="&transit;FinalShapePoint">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#FinalShapePoint">
         <rdfs:label rdf:datatype="&xsd;string">FinalShapePoint</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&transit;ShapePoint"/>
+        <rdfs:subClassOf rdf:resource="http://thinkingthread.com/ontologies/transit#ShapePoint"/>
     </owl:Class>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#FinalStop -->
 
-    <owl:Class rdf:about="&transit;FinalStop">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#FinalStop">
         <rdfs:label rdf:datatype="&xsd;string">FinalStop</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&transit;StopPoint"/>
+        <rdfs:subClassOf rdf:resource="http://thinkingthread.com/ontologies/transit#StopPoint"/>
     </owl:Class>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#Frequency -->
 
-    <owl:Class rdf:about="&transit;Frequency">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Frequency">
         <rdfs:label rdf:datatype="&xsd;string">Frequency</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Represents the operating frequency of Trip. For trips where the Stop Points&apos; arrival and departure time are not given, this is used to calculate when a transport should be at a stop on a given date</rdfs:comment>
     </owl:Class>
@@ -795,7 +793,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Location -->
 
-    <owl:Class rdf:about="&transit;Location">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Location">
         <rdfs:label rdf:datatype="&xsd;string">Location</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Abstract entity that represents geopgrahical coordinates for an entity</rdfs:comment>
     </owl:Class>
@@ -804,7 +802,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#OperatingAgencies -->
 
-    <owl:Class rdf:about="&transit;OperatingAgencies">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#OperatingAgencies">
         <rdfs:label rdf:datatype="&xsd;string">OperatingAgencies</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A list entity with a set of Agencies that operate Routes published on a feed</rdfs:comment>
     </owl:Class>
@@ -813,13 +811,13 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Period -->
 
-    <owl:Class rdf:about="&transit;Period"/>
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Period"/>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#PeriodException -->
 
-    <owl:Class rdf:about="&transit;PeriodException">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#PeriodException">
         <rdfs:label rdf:datatype="&xsd;string">PeriodException</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">An exception rule to a Service period. Can be either to add or remove service on a given date</rdfs:comment>
     </owl:Class>
@@ -828,7 +826,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Publisher -->
 
-    <owl:Class rdf:about="&transit;Publisher">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Publisher">
         <rdfs:label rdf:datatype="&xsd;string">Publisher</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Entity that publishes a Feed</rdfs:comment>
     </owl:Class>
@@ -837,7 +835,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Route -->
 
-    <owl:Class rdf:about="&transit;Route">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Route">
         <rdfs:label rdf:datatype="&xsd;string">Route</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A service connecting two Stop Points, with one or more trips in either direction</rdfs:comment>
     </owl:Class>
@@ -846,9 +844,9 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#RouteFareRule -->
 
-    <owl:Class rdf:about="&transit;RouteFareRule">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#RouteFareRule">
         <rdfs:label rdf:datatype="&xsd;string">RouteFareRule</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&transit;FareRule"/>
+        <rdfs:subClassOf rdf:resource="http://thinkingthread.com/ontologies/transit#FareRule"/>
         <rdfs:comment rdf:datatype="&xsd;string">Rule that defines the application of a Fare to a Route</rdfs:comment>
     </owl:Class>
     
@@ -856,7 +854,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Service -->
 
-    <owl:Class rdf:about="&transit;Service">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Service">
         <rdfs:label rdf:datatype="&xsd;string">Service</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Operating schedule for a Route. Defines dates in which the service runs, and any exceptions</rdfs:comment>
     </owl:Class>
@@ -865,9 +863,9 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#ServicePeriod -->
 
-    <owl:Class rdf:about="&transit;ServicePeriod">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#ServicePeriod">
         <rdfs:label rdf:datatype="&xsd;string">ServicePeriod</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&transit;Period"/>
+        <rdfs:subClassOf rdf:resource="http://thinkingthread.com/ontologies/transit#Period"/>
         <rdfs:comment rdf:datatype="&xsd;string">Date range for which a Service operates</rdfs:comment>
     </owl:Class>
     
@@ -875,7 +873,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Shape -->
 
-    <owl:Class rdf:about="&transit;Shape">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Shape">
         <rdfs:label rdf:datatype="&xsd;string">Shape</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Represents a map shape, with a sequnce of a Shape Points. Used to visualize Routes</rdfs:comment>
     </owl:Class>
@@ -884,7 +882,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#ShapePoint -->
 
-    <owl:Class rdf:about="&transit;ShapePoint">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#ShapePoint">
         <rdfs:label rdf:datatype="&xsd;string">ShapePoint</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Geopgrahical point, with a given location, in a seuqnce of Shape Points that make up Shape on a map</rdfs:comment>
     </owl:Class>
@@ -893,7 +891,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Station -->
 
-    <owl:Class rdf:about="&transit;Station">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Station">
         <rdfs:label rdf:datatype="&xsd;string">Station</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A physical infrastructure that may house one of more Stops</rdfs:comment>
     </owl:Class>
@@ -902,7 +900,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Stop -->
 
-    <owl:Class rdf:about="&transit;Stop">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Stop">
         <rdfs:label rdf:datatype="&xsd;string">Stop</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A physical Stop for transport type, e.g. bus stop, train stop.</rdfs:comment>
     </owl:Class>
@@ -911,7 +909,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#StopPoint -->
 
-    <owl:Class rdf:about="&transit;StopPoint">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#StopPoint">
         <rdfs:label rdf:datatype="&xsd;string">StopPoint</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Entity that represents a stop schedule for a Stop Sequence, at specified Stop. Arrival and departure time can be specified, if a trip does not run a frequency.</rdfs:comment>
     </owl:Class>
@@ -920,7 +918,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#StopSequence -->
 
-    <owl:Class rdf:about="&transit;StopSequence">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#StopSequence">
         <rdfs:label rdf:datatype="&xsd;string">StopSequence</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">An entity that represents a sequence of stop points for a Trip</rdfs:comment>
     </owl:Class>
@@ -929,7 +927,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Transfer -->
 
-    <owl:Class rdf:about="&transit;Transfer">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Transfer">
         <rdfs:label rdf:datatype="&xsd;string">Transfer</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">An organization that provides services for routes on a given schedule</rdfs:comment>
     </owl:Class>
@@ -938,7 +936,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Transport -->
 
-    <owl:Class rdf:about="&transit;Transport">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Transport">
         <rdfs:label rdf:datatype="&xsd;string">Transport</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A type of transport machinery, e.g. bus, train</rdfs:comment>
     </owl:Class>
@@ -947,7 +945,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Trip -->
 
-    <owl:Class rdf:about="&transit;Trip">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Trip">
         <rdfs:label rdf:datatype="&xsd;string">Trip</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A journey from a starting Stop Point to another, where passengers need not transfer, under a Route. Usually represents a journey from the starting point of a route to its end, and the reverse journey</rdfs:comment>
     </owl:Class>
@@ -956,9 +954,9 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#ValidityPeriod -->
 
-    <owl:Class rdf:about="&transit;ValidityPeriod">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#ValidityPeriod">
         <rdfs:label rdf:datatype="&xsd;string">ValidityPeriod</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&transit;Period"/>
+        <rdfs:subClassOf rdf:resource="http://thinkingthread.com/ontologies/transit#Period"/>
         <rdfs:comment rdf:datatype="&xsd;string">An abstract entity that represents the validity period of an entity with an start date and end date</rdfs:comment>
     </owl:Class>
     
@@ -966,7 +964,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#WeekdayAvailability -->
 
-    <owl:Class rdf:about="&transit;WeekdayAvailability">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#WeekdayAvailability">
         <rdfs:label rdf:datatype="&xsd;string">WeekdayAvailability</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Define avaiability of a Service on a given Weekday</rdfs:comment>
     </owl:Class>
@@ -975,7 +973,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#WheelchairAccessibility -->
 
-    <owl:Class rdf:about="&transit;WheelchairAccessibility">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#WheelchairAccessibility">
         <rdfs:label rdf:datatype="&xsd;string">WheelchairAccessiblity</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">Type of wheelchair accessibility provided by an entity</rdfs:comment>
     </owl:Class>
@@ -984,7 +982,7 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Zone -->
 
-    <owl:Class rdf:about="&transit;Zone">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#Zone">
         <rdfs:label rdf:datatype="&xsd;string">Zone</rdfs:label>
         <rdfs:comment rdf:datatype="&xsd;string">A geographical area that constitutes an independent operating region for routes</rdfs:comment>
     </owl:Class>
@@ -993,9 +991,9 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#ZoneCrossFareRule -->
 
-    <owl:Class rdf:about="&transit;ZoneCrossFareRule">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#ZoneCrossFareRule">
         <rdfs:label rdf:datatype="&xsd;string">ZoneCrossFareRule</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&transit;FareRule"/>
+        <rdfs:subClassOf rdf:resource="http://thinkingthread.com/ontologies/transit#FareRule"/>
         <rdfs:comment rdf:datatype="&xsd;string">Rule that defines the application of a Fare to the transfer from one Zone to another</rdfs:comment>
     </owl:Class>
     
@@ -1003,9 +1001,9 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#ZoneFareRule -->
 
-    <owl:Class rdf:about="&transit;ZoneFareRule">
+    <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#ZoneFareRule">
         <rdfs:label rdf:datatype="&xsd;string">ZoneFareRule</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&transit;FareRule"/>
+        <rdfs:subClassOf rdf:resource="http://thinkingthread.com/ontologies/transit#FareRule"/>
         <rdfs:comment rdf:datatype="&xsd;string">Rule that defines the application of a Fare to a Zone</rdfs:comment>
     </owl:Class>
     
@@ -1024,19 +1022,19 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Avaiable -->
 
-    <owl:NamedIndividual rdf:about="&transit;Avaiable"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Avaiable"/>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#Bus -->
 
-    <owl:NamedIndividual rdf:about="&transit;Bus">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Bus">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Bus. Used for short- and long-distance bus routes.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;Bus"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#Bus"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1044,13 +1042,13 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#CableCar -->
 
-    <owl:NamedIndividual rdf:about="&transit;CableCar">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#CableCar">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Cable car. Used for street-level cable cars where the cable runs beneath the car.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;CableCar"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#CableCar"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1058,13 +1056,13 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Ferry -->
 
-    <owl:NamedIndividual rdf:about="&transit;Ferry">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Ferry">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Ferry. Used for short- and long-distance boat service.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;Ferry"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#Ferry"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1072,13 +1070,13 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Funicular -->
 
-    <owl:NamedIndividual rdf:about="&transit;Funicular">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Funicular">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Funicular. Any rail system designed for steep inclines.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;Funicular"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#Funicular"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1086,13 +1084,13 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Gondola -->
 
-    <owl:NamedIndividual rdf:about="&transit;Gondola">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Gondola">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Gondola, Suspended cable car. Typically used for aerial cable cars where the car is suspended from the cable.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;Gondola"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#Gondola"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1100,13 +1098,13 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Metro -->
 
-    <owl:NamedIndividual rdf:about="&transit;Metro">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Metro">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Subway, Metro. Any underground rail system within a metropolitan area.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;Metro"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#Metro"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1114,34 +1112,34 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#No -->
 
-    <owl:NamedIndividual rdf:about="&transit;No">
-        <rdf:type rdf:resource="&transit;BicycleAllowance"/>
-        <rdf:type rdf:resource="&transit;WheelchairAccessibility"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#No">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#BicycleAllowance"/>
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#WheelchairAccessibility"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#NoTransfersPermitted -->
 
-    <owl:NamedIndividual rdf:about="&transit;NoTransfersPermitted"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#NoTransfersPermitted"/>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#NotAvailable -->
 
-    <owl:NamedIndividual rdf:about="&transit;NotAvailable"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#NotAvailable"/>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#Rail -->
 
-    <owl:NamedIndividual rdf:about="&transit;Rail">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Rail">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Rail. Used for intercity or long-distance travel.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;Rail"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#Rail"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1149,13 +1147,13 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#Tram -->
 
-    <owl:NamedIndividual rdf:about="&transit;Tram">
-        <rdf:type rdf:resource="&transit;Transport"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Tram">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
     </owl:NamedIndividual>
     <owl:Axiom>
         <rdfs:comment>Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.</rdfs:comment>
-        <owl:annotatedSource rdf:resource="&transit;Tram"/>
-        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedSource rdf:resource="http://thinkingthread.com/ontologies/transit#Tram"/>
+        <owl:annotatedTarget rdf:resource="http://thinkingthread.com/ontologies/transit#Transport"/>
         <owl:annotatedProperty rdf:resource="&rdf;type"/>
     </owl:Axiom>
     
@@ -1163,30 +1161,30 @@
 
     <!-- http://thinkingthread.com/ontologies/transit#TransferOnce -->
 
-    <owl:NamedIndividual rdf:about="&transit;TransferOnce"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#TransferOnce"/>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#TransferTwice -->
 
-    <owl:NamedIndividual rdf:about="&transit;TransferTwice"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#TransferTwice"/>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#Unknown -->
 
-    <owl:NamedIndividual rdf:about="&transit;Unknown">
-        <rdf:type rdf:resource="&transit;BicycleAllowance"/>
-        <rdf:type rdf:resource="&transit;WheelchairAccessibility"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Unknown">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#BicycleAllowance"/>
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#WheelchairAccessibility"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://thinkingthread.com/ontologies/transit#Yes -->
 
-    <owl:NamedIndividual rdf:about="&transit;Yes">
-        <rdf:type rdf:resource="&transit;BicycleAllowance"/>
-        <rdf:type rdf:resource="&transit;WheelchairAccessibility"/>
+    <owl:NamedIndividual rdf:about="http://thinkingthread.com/ontologies/transit#Yes">
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#BicycleAllowance"/>
+        <rdf:type rdf:resource="http://thinkingthread.com/ontologies/transit#WheelchairAccessibility"/>
     </owl:NamedIndividual>
     
 
