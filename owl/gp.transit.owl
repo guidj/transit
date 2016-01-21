@@ -86,6 +86,26 @@ xsd:duration rdf:type rdfs:Datatype .
 
 
 
+###  http://www.gp.com/ontologies/transit/destinationZone
+
+<http://www.gp.com/ontologies/transit/destinationZone> rdf:type owl:ObjectProperty ;
+                                                       
+                                                       rdfs:range <http://www.gp.com/ontologies/transit/Zone> ;
+                                                       
+                                                       rdfs:domain <http://www.gp.com/ontologies/transit/ZoneCrossFareRule> .
+
+
+
+###  http://www.gp.com/ontologies/transit/fare
+
+<http://www.gp.com/ontologies/transit/fare> rdf:type owl:ObjectProperty ;
+                                            
+                                            rdfs:range <http://www.gp.com/ontologies/transit/Fare> ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/FareRule> .
+
+
+
 ###  http://www.gp.com/ontologies/transit/farePricing
 
 <http://www.gp.com/ontologies/transit/farePricing> rdf:type owl:ObjectProperty ;
@@ -136,6 +156,16 @@ xsd:duration rdf:type rdfs:Datatype .
 
 
 
+###  http://www.gp.com/ontologies/transit/hasStopPoints
+
+<http://www.gp.com/ontologies/transit/hasStopPoints> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     rdfs:range <http://www.gp.com/ontologies/transit/StopPoint> ;
+                                                     
+                                                     rdfs:domain <http://www.gp.com/ontologies/transit/StopSequence> .
+
+
+
 ###  http://www.gp.com/ontologies/transit/location
 
 <http://www.gp.com/ontologies/transit/location> rdf:type owl:ObjectProperty ;
@@ -177,6 +207,16 @@ xsd:duration rdf:type rdfs:Datatype .
 
 
 
+###  http://www.gp.com/ontologies/transit/originZone
+
+<http://www.gp.com/ontologies/transit/originZone> rdf:type owl:ObjectProperty ;
+                                                  
+                                                  rdfs:range <http://www.gp.com/ontologies/transit/Zone> ;
+                                                  
+                                                  rdfs:domain <http://www.gp.com/ontologies/transit/ZoneCrossFareRule> .
+
+
+
 ###  http://www.gp.com/ontologies/transit/periodException
 
 <http://www.gp.com/ontologies/transit/periodException> rdf:type owl:ObjectProperty ;
@@ -194,6 +234,16 @@ xsd:duration rdf:type rdfs:Datatype .
                                                  rdfs:domain <http://www.gp.com/ontologies/transit/Feed> ;
                                                  
                                                  rdfs:range <http://www.gp.com/ontologies/transit/Publisher> .
+
+
+
+###  http://www.gp.com/ontologies/transit/route
+
+<http://www.gp.com/ontologies/transit/route> rdf:type owl:ObjectProperty ;
+                                             
+                                             rdfs:range <http://www.gp.com/ontologies/transit/Route> ;
+                                             
+                                             rdfs:domain <http://www.gp.com/ontologies/transit/RouteFareRule> .
 
 
 
@@ -233,7 +283,8 @@ xsd:duration rdf:type rdfs:Datatype .
                                             
                                             rdfs:range <http://www.gp.com/ontologies/transit/Stop> ;
                                             
-                                            rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> .
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/StopPoint> ,
+                                                        <http://www.gp.com/ontologies/transit/StopTime> .
 
 
 
@@ -313,7 +364,9 @@ xsd:duration rdf:type rdfs:Datatype .
                                             
                                             rdfs:domain <http://www.gp.com/ontologies/transit/Stop> ;
                                             
-                                            rdfs:range <http://www.gp.com/ontologies/transit/Zone> .
+                                            rdfs:range <http://www.gp.com/ontologies/transit/Zone> ;
+                                            
+                                            rdfs:domain <http://www.gp.com/ontologies/transit/ZoneFareRule> .
 
 
 
@@ -330,7 +383,8 @@ xsd:duration rdf:type rdfs:Datatype .
 
 <http://www.gp.com/ontologies/transit/arrivalTime> rdf:type owl:DatatypeProperty ;
                                                    
-                                                   rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> ;
+                                                   rdfs:domain <http://www.gp.com/ontologies/transit/StopPoint> ,
+                                                               <http://www.gp.com/ontologies/transit/StopTime> ;
                                                    
                                                    rdfs:range xsd:duration .
 
@@ -380,7 +434,8 @@ xsd:duration rdf:type rdfs:Datatype .
 
 <http://www.gp.com/ontologies/transit/departureTime> rdf:type owl:DatatypeProperty ;
                                                      
-                                                     rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> ;
+                                                     rdfs:domain <http://www.gp.com/ontologies/transit/StopPoint> ,
+                                                                 <http://www.gp.com/ontologies/transit/StopTime> ;
                                                      
                                                      rdfs:range xsd:duration .
 
@@ -450,7 +505,8 @@ xsd:duration rdf:type rdfs:Datatype .
 
 <http://www.gp.com/ontologies/transit/headsign> rdf:type owl:DatatypeProperty ;
                                                 
-                                                rdfs:domain <http://www.gp.com/ontologies/transit/StopTime> ,
+                                                rdfs:domain <http://www.gp.com/ontologies/transit/StopPoint> ,
+                                                            <http://www.gp.com/ontologies/transit/StopTime> ,
                                                             <http://www.gp.com/ontologies/transit/Trip> ;
                                                 
                                                 rdfs:range xsd:string .
@@ -577,6 +633,7 @@ xsd:duration rdf:type rdfs:Datatype .
 <http://www.gp.com/ontologies/transit/sequence> rdf:type owl:DatatypeProperty ;
                                                 
                                                 rdfs:domain <http://www.gp.com/ontologies/transit/ShapePoint> ,
+                                                            <http://www.gp.com/ontologies/transit/StopPoint> ,
                                                             <http://www.gp.com/ontologies/transit/StopTime> ;
                                                 
                                                 rdfs:range xsd:integer .
@@ -627,7 +684,8 @@ xsd:duration rdf:type rdfs:Datatype .
 
 <http://www.gp.com/ontologies/transit/transfers> rdf:type owl:DatatypeProperty ;
                                                  
-                                                 rdfs:domain <http://www.gp.com/ontologies/transit/FareTransfer> ;
+                                                 rdfs:domain <http://www.gp.com/ontologies/transit/FareRule> ,
+                                                             <http://www.gp.com/ontologies/transit/FareTransfer> ;
                                                  
                                                  rdfs:range xsd:integer .
 
@@ -680,19 +738,33 @@ xsd:duration rdf:type rdfs:Datatype .
 
 ###  http://www.gp.com/ontologies/transit/Fare
 
-<http://www.gp.com/ontologies/transit/Fare> rdf:type owl:Class .
+<http://www.gp.com/ontologies/transit/Fare> rdf:type owl:Class ;
+                                            
+                                            rdfs:label "Fare"^^xsd:string .
 
 
 
 ###  http://www.gp.com/ontologies/transit/FarePricing
 
-<http://www.gp.com/ontologies/transit/FarePricing> rdf:type owl:Class .
+<http://www.gp.com/ontologies/transit/FarePricing> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:label "FarePricing"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/FareRule
+
+<http://www.gp.com/ontologies/transit/FareRule> rdf:type owl:Class ;
+                                                
+                                                rdfs:label "FareRule"^^xsd:string .
 
 
 
 ###  http://www.gp.com/ontologies/transit/FareTransfer
 
-<http://www.gp.com/ontologies/transit/FareTransfer> rdf:type owl:Class .
+<http://www.gp.com/ontologies/transit/FareTransfer> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "FareTransfer"^^xsd:string .
 
 
 
@@ -708,7 +780,19 @@ xsd:duration rdf:type rdfs:Datatype .
 
 <http://www.gp.com/ontologies/transit/FinalShapePoint> rdf:type owl:Class ;
                                                        
+                                                       rdfs:label "FinalShapePoint"^^xsd:string ;
+                                                       
                                                        rdfs:subClassOf <http://www.gp.com/ontologies/transit/ShapePoint> .
+
+
+
+###  http://www.gp.com/ontologies/transit/FinalStop
+
+<http://www.gp.com/ontologies/transit/FinalStop> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "FinalStop"^^xsd:string ;
+                                                 
+                                                 rdfs:subClassOf <http://www.gp.com/ontologies/transit/StopPoint> .
 
 
 
@@ -760,11 +844,13 @@ xsd:duration rdf:type rdfs:Datatype .
 
 
 
-###  http://www.gp.com/ontologies/transit/RouteType
+###  http://www.gp.com/ontologies/transit/RouteFareRule
 
-<http://www.gp.com/ontologies/transit/RouteType> rdf:type owl:Class ;
-                                                 
-                                                 rdfs:label "RouteType"^^xsd:string .
+<http://www.gp.com/ontologies/transit/RouteFareRule> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:label "RouteFareRule"^^xsd:string ;
+                                                     
+                                                     rdfs:subClassOf <http://www.gp.com/ontologies/transit/FareRule> .
 
 
 
@@ -813,6 +899,22 @@ xsd:duration rdf:type rdfs:Datatype .
 <http://www.gp.com/ontologies/transit/Stop> rdf:type owl:Class ;
                                             
                                             rdfs:label "Stop"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/StopPoint
+
+<http://www.gp.com/ontologies/transit/StopPoint> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:label "StopPoint"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/StopSequence
+
+<http://www.gp.com/ontologies/transit/StopSequence> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "StopSequence"^^xsd:string .
 
 
 
@@ -877,6 +979,26 @@ xsd:duration rdf:type rdfs:Datatype .
 <http://www.gp.com/ontologies/transit/Zone> rdf:type owl:Class ;
                                             
                                             rdfs:label "Zone"^^xsd:string .
+
+
+
+###  http://www.gp.com/ontologies/transit/ZoneCrossFareRule
+
+<http://www.gp.com/ontologies/transit/ZoneCrossFareRule> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:label "ZoneCrossFareRule"^^xsd:string ;
+                                                         
+                                                         rdfs:subClassOf <http://www.gp.com/ontologies/transit/FareRule> .
+
+
+
+###  http://www.gp.com/ontologies/transit/ZoneFareRule
+
+<http://www.gp.com/ontologies/transit/ZoneFareRule> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:label "ZoneFareRule"^^xsd:string ;
+                                                    
+                                                    rdfs:subClassOf <http://www.gp.com/ontologies/transit/FareRule> .
 
 
 
