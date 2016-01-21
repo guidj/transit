@@ -1,4 +1,4 @@
-def generate_graph(stops, routes, format='xml'):
+def generate_graph(stops, routes, format='turtle'):
 
     from rdflib import Graph, URIRef, Literal
     from rdflib import RDF
