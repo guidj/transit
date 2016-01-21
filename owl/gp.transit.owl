@@ -1,1210 +1,1198 @@
-@prefix : <http://www.gp.com/ontologies/transit/#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.guidj.com/ontologies/transit/> .
+<?xml version="1.0"?>
 
-<http://www.guidj.com/ontologies/transit/> rdf:type owl:Ontology ;
-                                           
-                                           owl:imports <http://www.w3.org/2006/time> .
 
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY transit "http://www.guidj.com/ontologies/transit/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
 
-#################################################################
-#
-#    Annotation properties
-#
-#################################################################
 
+<rdf:RDF xmlns="http://www.gp.com/ontologies/transit/#"
+     xml:base="http://www.gp.com/ontologies/transit/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:transit="http://www.guidj.com/ontologies/transit/"
+     xmlns:dcterms="http://purl.org/dc/terms/#">
+    <owl:Ontology rdf:about="http://www.guidj.com/ontologies/transit/">
+        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
+    </owl:Ontology>
+    
 
-###  http://www.guidj.com/ontologies/transit/providesFeed
 
-<http://www.guidj.com/ontologies/transit/providesFeed> rdf:type owl:AnnotationProperty ;
-                                                       
-                                                       rdfs:subPropertyOf rdfs:comment .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/providesFeed -->
 
+    <owl:AnnotationProperty rdf:about="&transit;providesFeed">
+        <rdfs:subPropertyOf rdf:resource="&rdfs;comment"/>
+    </owl:AnnotationProperty>
+    
 
-#################################################################
-#
-#    Datatypes
-#
-#################################################################
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  http://www.w3.org/2001/XMLSchema#date
+    
 
-xsd:date rdf:type rdfs:Datatype .
 
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
 
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
 
-###  http://www.w3.org/2001/XMLSchema#duration
 
-xsd:duration rdf:type rdfs:Datatype .
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
 
+    <rdfs:Datatype rdf:about="&xsd;duration"/>
+    
 
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
+    
 
-#################################################################
-#
-#    Object Properties
-#
-#################################################################
 
+    <!-- http://www.guidj.com/ontologies/transit/agency -->
 
-###  http://www.guidj.com/ontologies/transit/agency
+    <owl:ObjectProperty rdf:about="&transit;agency">
+        <rdfs:range rdf:resource="&transit;Agency"/>
+        <rdfs:domain rdf:resource="&transit;OperatingAgencies"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/agency> rdf:type owl:ObjectProperty ;
-                                                 
-                                                 rdfs:range <http://www.guidj.com/ontologies/transit/Agency> ;
-                                                 
-                                                 rdfs:domain <http://www.guidj.com/ontologies/transit/OperatingAgencies> .
 
+    <!-- http://www.guidj.com/ontologies/transit/bicycleAllowance -->
 
+    <owl:ObjectProperty rdf:about="&transit;bicycleAllowance">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;BicycleAllowance"/>
+        <rdfs:domain rdf:resource="&transit;Trip"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/bicycleAccessibility
 
-<http://www.guidj.com/ontologies/transit/bicycleAccessibility> rdf:type owl:ObjectProperty ;
-                                                               
-                                                               rdfs:range <http://www.guidj.com/ontologies/transit/BicycleAccessibility> ;
-                                                               
-                                                               rdfs:domain <http://www.guidj.com/ontologies/transit/Trip> .
+    <!-- http://www.guidj.com/ontologies/transit/contains -->
 
+    <owl:ObjectProperty rdf:about="&transit;contains">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Station"/>
+        <rdfs:range rdf:resource="&transit;Stop"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/contains
+    <!-- http://www.guidj.com/ontologies/transit/destinationZone -->
 
-<http://www.guidj.com/ontologies/transit/contains> rdf:type owl:ObjectProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/Station> ;
-                                                   
-                                                   rdfs:range <http://www.guidj.com/ontologies/transit/Stop> .
+    <owl:ObjectProperty rdf:about="&transit;destinationZone">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Zone"/>
+        <rdfs:domain rdf:resource="&transit;ZoneCrossFareRule"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/fare -->
 
-###  http://www.guidj.com/ontologies/transit/destinationZone
+    <owl:ObjectProperty rdf:about="&transit;fare">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Fare"/>
+        <rdfs:domain rdf:resource="&transit;FareRule"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/destinationZone> rdf:type owl:ObjectProperty ;
-                                                          
-                                                          rdfs:range <http://www.guidj.com/ontologies/transit/Zone> ;
-                                                          
-                                                          rdfs:domain <http://www.guidj.com/ontologies/transit/ZoneCrossFareRule> .
 
+    <!-- http://www.guidj.com/ontologies/transit/farePricing -->
 
+    <owl:ObjectProperty rdf:about="&transit;farePricing">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Fare"/>
+        <rdfs:range rdf:resource="&transit;FarePricing"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/fare
 
-<http://www.guidj.com/ontologies/transit/fare> rdf:type owl:ObjectProperty ;
-                                               
-                                               rdfs:range <http://www.guidj.com/ontologies/transit/Fare> ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/FareRule> .
+    <!-- http://www.guidj.com/ontologies/transit/fareTransfer -->
 
+    <owl:ObjectProperty rdf:about="&transit;fareTransfer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Fare"/>
+        <rdfs:range rdf:resource="&transit;FareTransfer"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/farePricing
+    <!-- http://www.guidj.com/ontologies/transit/frequency -->
 
-<http://www.guidj.com/ontologies/transit/farePricing> rdf:type owl:ObjectProperty ;
-                                                      
-                                                      rdfs:domain <http://www.guidj.com/ontologies/transit/Fare> ;
-                                                      
-                                                      rdfs:range <http://www.guidj.com/ontologies/transit/FarePricing> .
+    <owl:ObjectProperty rdf:about="&transit;frequency">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Frequency"/>
+        <rdfs:domain rdf:resource="&transit;Trip"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/fromStop -->
 
-###  http://www.guidj.com/ontologies/transit/fareTransfer
+    <owl:ObjectProperty rdf:about="&transit;fromStop">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Stop"/>
+        <rdfs:domain rdf:resource="&transit;Transfer"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/fareTransfer> rdf:type owl:ObjectProperty ;
-                                                       
-                                                       rdfs:domain <http://www.guidj.com/ontologies/transit/Fare> ;
-                                                       
-                                                       rdfs:range <http://www.guidj.com/ontologies/transit/FareTransfer> .
 
+    <!-- http://www.guidj.com/ontologies/transit/hasShapePointSequence -->
 
+    <owl:ObjectProperty rdf:about="&transit;hasShapePointSequence">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Shape"/>
+        <rdfs:range rdf:resource="&transit;ShapePoint"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/frequency
 
-<http://www.guidj.com/ontologies/transit/frequency> rdf:type owl:ObjectProperty ;
-                                                    
-                                                    rdfs:range <http://www.guidj.com/ontologies/transit/Frequency> ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/Trip> .
+    <!-- http://www.guidj.com/ontologies/transit/hasStopPoints -->
 
+    <owl:ObjectProperty rdf:about="&transit;hasStopPoints">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;StopPoint"/>
+        <rdfs:domain rdf:resource="&transit;StopSequence"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/fromStop
+    <!-- http://www.guidj.com/ontologies/transit/location -->
 
-<http://www.guidj.com/ontologies/transit/fromStop> rdf:type owl:ObjectProperty ;
-                                                   
-                                                   rdfs:range <http://www.guidj.com/ontologies/transit/Stop> ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/Transfer> .
+    <owl:ObjectProperty rdf:about="&transit;location">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Location"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/nextShapePoint -->
 
-###  http://www.guidj.com/ontologies/transit/hasShapePointSequence
+    <owl:ObjectProperty rdf:about="&transit;nextShapePoint">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;ShapePoint"/>
+        <rdfs:range rdf:resource="&transit;ShapePoint"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/hasShapePointSequence> rdf:type owl:ObjectProperty ;
-                                                                
-                                                                rdfs:domain <http://www.guidj.com/ontologies/transit/Shape> ;
-                                                                
-                                                                rdfs:range <http://www.guidj.com/ontologies/transit/ShapePoint> .
 
+    <!-- http://www.guidj.com/ontologies/transit/nextStopPoint -->
 
+    <owl:ObjectProperty rdf:about="&transit;nextStopPoint">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;StopPoint"/>
+        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/hasStopPoints
 
-<http://www.guidj.com/ontologies/transit/hasStopPoints> rdf:type owl:ObjectProperty ;
-                                                        
-                                                        rdfs:range <http://www.guidj.com/ontologies/transit/StopPoint> ;
-                                                        
-                                                        rdfs:domain <http://www.guidj.com/ontologies/transit/StopSequence> .
+    <!-- http://www.guidj.com/ontologies/transit/operates -->
 
+    <owl:ObjectProperty rdf:about="&transit;operates">
+        <rdfs:domain rdf:resource="&transit;Agency"/>
+        <rdfs:range rdf:resource="&transit;Route"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/location
+    <!-- http://www.guidj.com/ontologies/transit/operatingAgencies -->
 
-<http://www.guidj.com/ontologies/transit/location> rdf:type owl:ObjectProperty ;
-                                                   
-                                                   rdfs:range <http://www.guidj.com/ontologies/transit/Location> ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/ShapePoint> ,
-                                                               <http://www.guidj.com/ontologies/transit/Stop> .
+    <owl:ObjectProperty rdf:about="&transit;operatingAgencies">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Feed"/>
+        <rdfs:range rdf:resource="&transit;OperatingAgencies"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/originZone -->
 
-###  http://www.guidj.com/ontologies/transit/nextShapePoint
+    <owl:ObjectProperty rdf:about="&transit;originZone">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Zone"/>
+        <rdfs:domain rdf:resource="&transit;ZoneCrossFareRule"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/nextShapePoint> rdf:type owl:ObjectProperty ;
-                                                         
-                                                         rdfs:domain <http://www.guidj.com/ontologies/transit/ShapePoint> ;
-                                                         
-                                                         rdfs:range <http://www.guidj.com/ontologies/transit/ShapePoint> .
 
+    <!-- http://www.guidj.com/ontologies/transit/periodException -->
 
+    <owl:ObjectProperty rdf:about="&transit;periodException">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;PeriodException"/>
+        <rdfs:domain rdf:resource="&transit;ServicePeriod"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/operates
 
-<http://www.guidj.com/ontologies/transit/operates> rdf:type owl:ObjectProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/Agency> ;
-                                                   
-                                                   rdfs:range <http://www.guidj.com/ontologies/transit/Route> .
+    <!-- http://www.guidj.com/ontologies/transit/publisher -->
 
+    <owl:ObjectProperty rdf:about="&transit;publisher">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Feed"/>
+        <rdfs:range rdf:resource="&transit;Publisher"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/operatingAgencies
+    <!-- http://www.guidj.com/ontologies/transit/route -->
 
-<http://www.guidj.com/ontologies/transit/operatingAgencies> rdf:type owl:ObjectProperty ;
-                                                            
-                                                            rdfs:domain <http://www.guidj.com/ontologies/transit/Feed> ;
-                                                            
-                                                            rdfs:range <http://www.guidj.com/ontologies/transit/OperatingAgencies> .
+    <owl:ObjectProperty rdf:about="&transit;route">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Route"/>
+        <rdfs:domain rdf:resource="&transit;RouteFareRule"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/service -->
 
-###  http://www.guidj.com/ontologies/transit/originZone
+    <owl:ObjectProperty rdf:about="&transit;service">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Service"/>
+        <rdfs:domain rdf:resource="&transit;Trip"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/originZone> rdf:type owl:ObjectProperty ;
-                                                     
-                                                     rdfs:range <http://www.guidj.com/ontologies/transit/Zone> ;
-                                                     
-                                                     rdfs:domain <http://www.guidj.com/ontologies/transit/ZoneCrossFareRule> .
 
+    <!-- http://www.guidj.com/ontologies/transit/servicePeriod -->
 
+    <owl:ObjectProperty rdf:about="&transit;servicePeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Service"/>
+        <rdfs:range rdf:resource="&transit;ServicePeriod"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/periodException
 
-<http://www.guidj.com/ontologies/transit/periodException> rdf:type owl:ObjectProperty ;
-                                                          
-                                                          rdfs:range <http://www.guidj.com/ontologies/transit/PeriodException> ;
-                                                          
-                                                          rdfs:domain <http://www.guidj.com/ontologies/transit/ServicePeriod> .
+    <!-- http://www.guidj.com/ontologies/transit/shape -->
 
+    <owl:ObjectProperty rdf:about="&transit;shape">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Shape"/>
+        <rdfs:domain rdf:resource="&transit;Trip"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/publisher
+    <!-- http://www.guidj.com/ontologies/transit/stop -->
 
-<http://www.guidj.com/ontologies/transit/publisher> rdf:type owl:ObjectProperty ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/Feed> ;
-                                                    
-                                                    rdfs:range <http://www.guidj.com/ontologies/transit/Publisher> .
+    <owl:ObjectProperty rdf:about="&transit;stop">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Stop"/>
+        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/toStop -->
 
-###  http://www.guidj.com/ontologies/transit/route
+    <owl:ObjectProperty rdf:about="&transit;toStop">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Stop"/>
+        <rdfs:domain rdf:resource="&transit;Transfer"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/route> rdf:type owl:ObjectProperty ;
-                                                
-                                                rdfs:range <http://www.guidj.com/ontologies/transit/Route> ;
-                                                
-                                                rdfs:domain <http://www.guidj.com/ontologies/transit/RouteFareRule> .
 
+    <!-- http://www.guidj.com/ontologies/transit/transportType -->
 
+    <owl:ObjectProperty rdf:about="&transit;transportType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Route"/>
+        <rdfs:range rdf:resource="&transit;Transport"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/service
 
-<http://www.guidj.com/ontologies/transit/service> rdf:type owl:ObjectProperty ;
-                                                  
-                                                  rdfs:range <http://www.guidj.com/ontologies/transit/Service> ;
-                                                  
-                                                  rdfs:domain <http://www.guidj.com/ontologies/transit/Trip> .
+    <!-- http://www.guidj.com/ontologies/transit/trip -->
 
+    <owl:ObjectProperty rdf:about="&transit;trip">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Route"/>
+        <rdfs:range rdf:resource="&transit;Trip"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/servicePeriod
+    <!-- http://www.guidj.com/ontologies/transit/validityPeriod -->
 
-<http://www.guidj.com/ontologies/transit/servicePeriod> rdf:type owl:ObjectProperty ;
-                                                        
-                                                        rdfs:domain <http://www.guidj.com/ontologies/transit/Service> ;
-                                                        
-                                                        rdfs:range <http://www.guidj.com/ontologies/transit/ServicePeriod> .
+    <owl:ObjectProperty rdf:about="&transit;validityPeriod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Feed"/>
+        <rdfs:range rdf:resource="&transit;ValidityPeriod"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/weekday -->
 
-###  http://www.guidj.com/ontologies/transit/shape
+    <owl:ObjectProperty rdf:about="&transit;weekday">
+        <rdfs:domain rdf:resource="&transit;WeekdayAvailability"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#DayOfWeek"/>
+    </owl:ObjectProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/shape> rdf:type owl:ObjectProperty ;
-                                                
-                                                rdfs:range <http://www.guidj.com/ontologies/transit/Shape> ;
-                                                
-                                                rdfs:domain <http://www.guidj.com/ontologies/transit/Trip> .
 
+    <!-- http://www.guidj.com/ontologies/transit/weekdayAvailability -->
 
+    <owl:ObjectProperty rdf:about="&transit;weekdayAvailability">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&transit;Service"/>
+        <rdfs:range rdf:resource="&transit;WeekdayAvailability"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/stop
 
-<http://www.guidj.com/ontologies/transit/stop> rdf:type owl:ObjectProperty ;
-                                               
-                                               rdfs:range <http://www.guidj.com/ontologies/transit/Stop> ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/StopPoint> .
+    <!-- http://www.guidj.com/ontologies/transit/wheelchairAccessibility -->
 
+    <owl:ObjectProperty rdf:about="&transit;wheelchairAccessibility">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;WheelchairAccessibility"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/stopTime
+    <!-- http://www.guidj.com/ontologies/transit/zone -->
 
-<http://www.guidj.com/ontologies/transit/stopTime> rdf:type owl:ObjectProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/Trip> .
+    <owl:ObjectProperty rdf:about="&transit;zone">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&transit;Zone"/>
+    </owl:ObjectProperty>
+    
 
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  http://www.guidj.com/ontologies/transit/toStop
+    
 
-<http://www.guidj.com/ontologies/transit/toStop> rdf:type owl:ObjectProperty ;
-                                                 
-                                                 rdfs:range <http://www.guidj.com/ontologies/transit/Stop> ;
-                                                 
-                                                 rdfs:domain <http://www.guidj.com/ontologies/transit/Transfer> .
 
+    <!-- http://www.guidj.com/ontologies/transit/arrivalTime -->
 
+    <owl:DatatypeProperty rdf:about="&transit;arrivalTime">
+        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/transportType
 
-<http://www.guidj.com/ontologies/transit/transportType> rdf:type owl:ObjectProperty ;
-                                                        
-                                                        rdfs:domain <http://www.guidj.com/ontologies/transit/Route> ;
-                                                        
-                                                        rdfs:range <http://www.guidj.com/ontologies/transit/Transport> .
+    <!-- http://www.guidj.com/ontologies/transit/available -->
 
+    <owl:DatatypeProperty rdf:about="&transit;available">
+        <rdfs:domain rdf:resource="&transit;WeekdayAvailability"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/trip
+    <!-- http://www.guidj.com/ontologies/transit/code -->
 
-<http://www.guidj.com/ontologies/transit/trip> rdf:type owl:ObjectProperty ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/Route> ;
-                                               
-                                               rdfs:range <http://www.guidj.com/ontologies/transit/Trip> .
+    <owl:DatatypeProperty rdf:about="&transit;code">
+        <rdfs:domain rdf:resource="&transit;Stop"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/currency -->
 
-###  http://www.guidj.com/ontologies/transit/validityPeriod
+    <owl:DatatypeProperty rdf:about="&transit;currency">
+        <rdfs:domain rdf:resource="&transit;FarePricing"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/validityPeriod> rdf:type owl:ObjectProperty ;
-                                                         
-                                                         rdfs:domain <http://www.guidj.com/ontologies/transit/Feed> ;
-                                                         
-                                                         rdfs:range <http://www.guidj.com/ontologies/transit/ValidityPeriod> .
 
+    <!-- http://www.guidj.com/ontologies/transit/date -->
 
+    <owl:DatatypeProperty rdf:about="&transit;date">
+        <rdfs:domain rdf:resource="&transit;PeriodException"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/weekday
 
-<http://www.guidj.com/ontologies/transit/weekday> rdf:type owl:ObjectProperty ;
-                                                  
-                                                  rdfs:domain <http://www.guidj.com/ontologies/transit/WeekdayAvailability> ;
-                                                  
-                                                  rdfs:range <http://www.w3.org/2006/time#DayOfWeek> .
+    <!-- http://www.guidj.com/ontologies/transit/departureTime -->
 
+    <owl:DatatypeProperty rdf:about="&transit;departureTime">
+        <rdfs:domain rdf:resource="&transit;StopPoint"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/weekdayAvailability
+    <!-- http://www.guidj.com/ontologies/transit/description -->
 
-<http://www.guidj.com/ontologies/transit/weekdayAvailability> rdf:type owl:ObjectProperty ;
-                                                              
-                                                              rdfs:domain <http://www.guidj.com/ontologies/transit/Service> ;
-                                                              
-                                                              rdfs:range <http://www.guidj.com/ontologies/transit/WeekdayAvailability> .
+    <owl:DatatypeProperty rdf:about="&transit;description">
+        <rdfs:domain rdf:resource="&transit;Stop"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/direction -->
 
-###  http://www.guidj.com/ontologies/transit/wheelchairAccessibility
+    <owl:DatatypeProperty rdf:about="&transit;direction">
+        <rdfs:domain rdf:resource="&transit;Trip"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/wheelchairAccessibility> rdf:type owl:ObjectProperty ;
-                                                                  
-                                                                  rdfs:domain <http://www.guidj.com/ontologies/transit/Trip> ;
-                                                                  
-                                                                  rdfs:range <http://www.guidj.com/ontologies/transit/WheelchairAccessibility> .
 
+    <!-- http://www.guidj.com/ontologies/transit/distanceTravelled -->
 
+    <owl:DatatypeProperty rdf:about="&transit;distanceTravelled">
+        <rdfs:domain rdf:resource="&transit;ShapePoint"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/zone
 
-<http://www.guidj.com/ontologies/transit/zone> rdf:type owl:ObjectProperty ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/Stop> ;
-                                               
-                                               rdfs:range <http://www.guidj.com/ontologies/transit/Zone> ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/ZoneFareRule> .
+    <!-- http://www.guidj.com/ontologies/transit/exceptionType -->
 
+    <owl:DatatypeProperty rdf:about="&transit;exceptionType">
+        <rdfs:domain rdf:resource="&transit;PeriodException"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/frequencyEnd -->
 
+    <owl:DatatypeProperty rdf:about="&transit;frequencyEnd">
+        <rdfs:domain rdf:resource="&transit;Frequency"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
 
-#################################################################
-#
-#    Data properties
-#
-#################################################################
 
+    <!-- http://www.guidj.com/ontologies/transit/frequencyStart -->
 
-###  http://www.guidj.com/ontologies/transit/arrivalTime
+    <owl:DatatypeProperty rdf:about="&transit;frequencyStart">
+        <rdfs:domain rdf:resource="&transit;Frequency"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/arrivalTime> rdf:type owl:DatatypeProperty ;
-                                                      
-                                                      rdfs:domain <http://www.guidj.com/ontologies/transit/StopPoint> ;
-                                                      
-                                                      rdfs:range xsd:duration .
 
+    <!-- http://www.guidj.com/ontologies/transit/headsign -->
 
+    <owl:DatatypeProperty rdf:about="&transit;headsign">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/available
 
-<http://www.guidj.com/ontologies/transit/available> rdf:type owl:DatatypeProperty ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/WeekdayAvailability> ;
-                                                    
-                                                    rdfs:range xsd:boolean .
+    <!-- http://www.guidj.com/ontologies/transit/headway -->
 
+    <owl:DatatypeProperty rdf:about="&transit;headway">
+        <rdfs:domain rdf:resource="&transit;Frequency"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/code
+    <!-- http://www.guidj.com/ontologies/transit/id -->
 
-<http://www.guidj.com/ontologies/transit/code> rdf:type owl:DatatypeProperty ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/Stop> ;
-                                               
-                                               rdfs:range xsd:string .
+    <owl:DatatypeProperty rdf:about="&transit;id">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/latitude -->
 
-###  http://www.guidj.com/ontologies/transit/currency
+    <owl:DatatypeProperty rdf:about="&transit;latitude">
+        <rdfs:domain rdf:resource="&transit;Location"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/currency> rdf:type owl:DatatypeProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/FarePricing> ;
-                                                   
-                                                   rdfs:range xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/longName -->
 
+    <owl:DatatypeProperty rdf:about="&transit;longName">
+        <rdfs:domain rdf:resource="&transit;Route"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/date
 
-<http://www.guidj.com/ontologies/transit/date> rdf:type owl:DatatypeProperty ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/PeriodException> ;
-                                               
-                                               rdfs:range xsd:date .
+    <!-- http://www.guidj.com/ontologies/transit/longitude -->
 
+    <owl:DatatypeProperty rdf:about="&transit;longitude">
+        <rdfs:domain rdf:resource="&transit;Location"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/departureTime
+    <!-- http://www.guidj.com/ontologies/transit/minTime -->
 
-<http://www.guidj.com/ontologies/transit/departureTime> rdf:type owl:DatatypeProperty ;
-                                                        
-                                                        rdfs:domain <http://www.guidj.com/ontologies/transit/StopPoint> ;
-                                                        
-                                                        rdfs:range xsd:duration .
+    <owl:DatatypeProperty rdf:about="&transit;minTime">
+        <rdfs:domain rdf:resource="&transit;Transfer"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/name -->
 
-###  http://www.guidj.com/ontologies/transit/description
+    <owl:DatatypeProperty rdf:about="&transit;name">
+        <rdfs:range rdf:resource="&xsd;Name"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/description> rdf:type owl:DatatypeProperty ;
-                                                      
-                                                      rdfs:domain <http://www.guidj.com/ontologies/transit/Stop> ;
-                                                      
-                                                      rdfs:range xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/paymentMethod -->
 
+    <owl:DatatypeProperty rdf:about="&transit;paymentMethod">
+        <rdfs:domain rdf:resource="&transit;FarePricing"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/direction
 
-<http://www.guidj.com/ontologies/transit/direction> rdf:type owl:DatatypeProperty ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/Trip> ;
-                                                    
-                                                    rdfs:range xsd:integer .
+    <!-- http://www.guidj.com/ontologies/transit/periodEnd -->
 
+    <owl:DatatypeProperty rdf:about="&transit;periodEnd">
+        <rdfs:domain rdf:resource="&transit;Period"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/distanceTravelled
+    <!-- http://www.guidj.com/ontologies/transit/periodStart -->
 
-<http://www.guidj.com/ontologies/transit/distanceTravelled> rdf:type owl:DatatypeProperty ;
-                                                            
-                                                            rdfs:domain <http://www.guidj.com/ontologies/transit/ShapePoint> ;
-                                                            
-                                                            rdfs:range xsd:float .
+    <owl:DatatypeProperty rdf:about="&transit;periodStart">
+        <rdfs:domain rdf:resource="&transit;Period"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/price -->
 
-###  http://www.guidj.com/ontologies/transit/exceptionType
+    <owl:DatatypeProperty rdf:about="&transit;price">
+        <rdfs:domain rdf:resource="&transit;FarePricing"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/exceptionType> rdf:type owl:DatatypeProperty ;
-                                                        
-                                                        rdfs:domain <http://www.guidj.com/ontologies/transit/PeriodException> ;
-                                                        
-                                                        rdfs:range xsd:integer .
 
+    <!-- http://www.guidj.com/ontologies/transit/sequence -->
 
+    <owl:DatatypeProperty rdf:about="&transit;sequence">
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/frequencyEnd
 
-<http://www.guidj.com/ontologies/transit/frequencyEnd> rdf:type owl:DatatypeProperty ;
-                                                       
-                                                       rdfs:domain <http://www.guidj.com/ontologies/transit/Frequency> ;
-                                                       
-                                                       rdfs:range xsd:duration .
+    <!-- http://www.guidj.com/ontologies/transit/shortName -->
 
+    <owl:DatatypeProperty rdf:about="&transit;shortName">
+        <rdfs:domain rdf:resource="&transit;Route"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/frequencyStart
+    <!-- http://www.guidj.com/ontologies/transit/timezone -->
 
-<http://www.guidj.com/ontologies/transit/frequencyStart> rdf:type owl:DatatypeProperty ;
-                                                         
-                                                         rdfs:domain <http://www.guidj.com/ontologies/transit/Frequency> ;
-                                                         
-                                                         rdfs:range xsd:duration .
+    <owl:DatatypeProperty rdf:about="&transit;timezone">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/transferDuration -->
 
-###  http://www.guidj.com/ontologies/transit/headsign
+    <owl:DatatypeProperty rdf:about="&transit;transferDuration">
+        <rdfs:domain rdf:resource="&transit;FareTransfer"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/headsign> rdf:type owl:DatatypeProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/StopPoint> ,
-                                                               <http://www.guidj.com/ontologies/transit/Trip> ;
-                                                   
-                                                   rdfs:range xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/transferType -->
 
+    <owl:DatatypeProperty rdf:about="&transit;transferType">
+        <rdfs:domain rdf:resource="&transit;Transfer"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
 
-###  http://www.guidj.com/ontologies/transit/headway
 
-<http://www.guidj.com/ontologies/transit/headway> rdf:type owl:DatatypeProperty ;
-                                                  
-                                                  rdfs:domain <http://www.guidj.com/ontologies/transit/Frequency> ;
-                                                  
-                                                  rdfs:range xsd:duration .
+    <!-- http://www.guidj.com/ontologies/transit/transfers -->
 
+    <owl:DatatypeProperty rdf:about="&transit;transfers">
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/id
+    <!-- http://www.guidj.com/ontologies/transit/url -->
 
-<http://www.guidj.com/ontologies/transit/id> rdf:type owl:DatatypeProperty ;
-                                             
-                                             rdfs:range xsd:string ;
-                                             
-                                             rdfs:domain owl:Thing .
+    <owl:DatatypeProperty rdf:about="&transit;url">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/version -->
 
-###  http://www.guidj.com/ontologies/transit/latitude
+    <owl:DatatypeProperty rdf:about="&transit;version">
+        <rdfs:domain rdf:resource="&transit;Feed"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
 
-<http://www.guidj.com/ontologies/transit/latitude> rdf:type owl:DatatypeProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/Location> ;
-                                                   
-                                                   rdfs:range xsd:float .
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
+    
 
-###  http://www.guidj.com/ontologies/transit/longName
 
-<http://www.guidj.com/ontologies/transit/longName> rdf:type owl:DatatypeProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/Route> ;
-                                                   
-                                                   rdfs:range xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/Agency -->
 
+    <owl:Class rdf:about="&transit;Agency">
+        <rdfs:label rdf:datatype="&xsd;string">Agency</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">An organisation that operates a Route</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/longitude
+    <!-- http://www.guidj.com/ontologies/transit/BicycleAllowance -->
 
-<http://www.guidj.com/ontologies/transit/longitude> rdf:type owl:DatatypeProperty ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/Location> ;
-                                                    
-                                                    rdfs:range xsd:float .
+    <owl:Class rdf:about="&transit;BicycleAllowance">
+        <rdfs:label rdf:datatype="&xsd;string">BicycleAllowance</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Type of wheelchair accessibility provided by an entity</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/Fare -->
 
-###  http://www.guidj.com/ontologies/transit/minTime
+    <owl:Class rdf:about="&transit;Fare">
+        <rdfs:label rdf:datatype="&xsd;string">Fare</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Represents an admission entry for the usage of a service. It may apply to Zones, or Routes</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/minTime> rdf:type owl:DatatypeProperty ;
-                                                  
-                                                  rdfs:domain <http://www.guidj.com/ontologies/transit/Transfer> ;
-                                                  
-                                                  rdfs:range xsd:duration .
 
+    <!-- http://www.guidj.com/ontologies/transit/FarePricing -->
 
+    <owl:Class rdf:about="&transit;FarePricing">
+        <rdfs:label rdf:datatype="&xsd;string">FarePricing</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Pricing of a fare ticket</rdfs:comment>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/name
 
-<http://www.guidj.com/ontologies/transit/name> rdf:type owl:DatatypeProperty ;
-                                               
-                                               rdfs:domain <http://www.guidj.com/ontologies/transit/Agency> ,
-                                                           <http://www.guidj.com/ontologies/transit/Publisher> ,
-                                                           <http://www.guidj.com/ontologies/transit/Station> ,
-                                                           <http://www.guidj.com/ontologies/transit/Stop> ,
-                                                           <http://www.guidj.com/ontologies/transit/Transport> ;
-                                               
-                                               rdfs:range xsd:Name .
+    <!-- http://www.guidj.com/ontologies/transit/FareRule -->
 
+    <owl:Class rdf:about="&transit;FareRule">
+        <rdfs:label rdf:datatype="&xsd;string">FareRule</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Rule that defines how a fare is applied</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/paymentMethod
+    <!-- http://www.guidj.com/ontologies/transit/FareTransfer -->
 
-<http://www.guidj.com/ontologies/transit/paymentMethod> rdf:type owl:DatatypeProperty ;
-                                                        
-                                                        rdfs:domain <http://www.guidj.com/ontologies/transit/FarePricing> ;
-                                                        
-                                                        rdfs:range xsd:integer .
+    <owl:Class rdf:about="&transit;FareTransfer">
+        <rdfs:label rdf:datatype="&xsd;string">FareTransfer</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Transfer rules/properties for a Fare</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/Feed -->
 
-###  http://www.guidj.com/ontologies/transit/periodEnd
+    <owl:Class rdf:about="&transit;Feed">
+        <rdfs:label rdf:datatype="&xsd;string">Feed</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A GTFS feed</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/periodEnd> rdf:type owl:DatatypeProperty ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/ServicePeriod> ,
-                                                                <http://www.guidj.com/ontologies/transit/ValidityPeriod> ;
-                                                    
-                                                    rdfs:range xsd:date .
 
+    <!-- http://www.guidj.com/ontologies/transit/FinalShapePoint -->
 
+    <owl:Class rdf:about="&transit;FinalShapePoint">
+        <rdfs:label rdf:datatype="&xsd;string">FinalShapePoint</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&transit;ShapePoint"/>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/periodStart
 
-<http://www.guidj.com/ontologies/transit/periodStart> rdf:type owl:DatatypeProperty ;
-                                                      
-                                                      rdfs:domain <http://www.guidj.com/ontologies/transit/ServicePeriod> ,
-                                                                  <http://www.guidj.com/ontologies/transit/ValidityPeriod> ;
-                                                      
-                                                      rdfs:range xsd:date .
+    <!-- http://www.guidj.com/ontologies/transit/FinalStop -->
 
+    <owl:Class rdf:about="&transit;FinalStop">
+        <rdfs:label rdf:datatype="&xsd;string">FinalStop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&transit;StopPoint"/>
+    </owl:Class>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/price
+    <!-- http://www.guidj.com/ontologies/transit/Frequency -->
 
-<http://www.guidj.com/ontologies/transit/price> rdf:type owl:DatatypeProperty ;
-                                                
-                                                rdfs:domain <http://www.guidj.com/ontologies/transit/FarePricing> ;
-                                                
-                                                rdfs:range xsd:float .
+    <owl:Class rdf:about="&transit;Frequency">
+        <rdfs:label rdf:datatype="&xsd;string">Frequency</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Represents the operating frequency of Trip. For trips where the Stop Points&apos; arrival and departure time are not given, this is used to calculate when a transport should be at a stop on a given date</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/Location -->
 
-###  http://www.guidj.com/ontologies/transit/sequence
+    <owl:Class rdf:about="&transit;Location">
+        <rdfs:label rdf:datatype="&xsd;string">Location</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Abstract entity that represents geopgrahical coordinates for an entity</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/sequence> rdf:type owl:DatatypeProperty ;
-                                                   
-                                                   rdfs:domain <http://www.guidj.com/ontologies/transit/ShapePoint> ,
-                                                               <http://www.guidj.com/ontologies/transit/StopPoint> ;
-                                                   
-                                                   rdfs:range xsd:integer .
 
+    <!-- http://www.guidj.com/ontologies/transit/OperatingAgencies -->
 
+    <owl:Class rdf:about="&transit;OperatingAgencies">
+        <rdfs:label rdf:datatype="&xsd;string">OperatingAgencies</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A list entity with a set of Agencies that operate Routes published on a feed</rdfs:comment>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/shortName
 
-<http://www.guidj.com/ontologies/transit/shortName> rdf:type owl:DatatypeProperty ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/Route> ;
-                                                    
-                                                    rdfs:range xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/Period -->
 
+    <owl:Class rdf:about="&transit;Period"/>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/timezone
+    <!-- http://www.guidj.com/ontologies/transit/PeriodException -->
 
-<http://www.guidj.com/ontologies/transit/timezone> rdf:type owl:DatatypeProperty ;
-                                                   
-                                                   rdfs:range xsd:string ;
-                                                   
-                                                   rdfs:domain owl:Thing .
+    <owl:Class rdf:about="&transit;PeriodException">
+        <rdfs:label rdf:datatype="&xsd;string">PeriodException</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">An exception rule to a Service period. Can be either to add or remove service on a given date</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/Publisher -->
 
-###  http://www.guidj.com/ontologies/transit/transferDuration
+    <owl:Class rdf:about="&transit;Publisher">
+        <rdfs:label rdf:datatype="&xsd;string">Publisher</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Entity that publishes a Feed</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/transferDuration> rdf:type owl:DatatypeProperty ;
-                                                           
-                                                           rdfs:domain <http://www.guidj.com/ontologies/transit/FareTransfer> ;
-                                                           
-                                                           rdfs:range xsd:duration .
 
+    <!-- http://www.guidj.com/ontologies/transit/Route -->
 
+    <owl:Class rdf:about="&transit;Route">
+        <rdfs:label rdf:datatype="&xsd;string">Route</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A service connecting two Stop Points, with one or more trips in either direction</rdfs:comment>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/transferType
 
-<http://www.guidj.com/ontologies/transit/transferType> rdf:type owl:DatatypeProperty ;
-                                                       
-                                                       rdfs:domain <http://www.guidj.com/ontologies/transit/Transfer> ;
-                                                       
-                                                       rdfs:range xsd:integer .
+    <!-- http://www.guidj.com/ontologies/transit/RouteFareRule -->
 
+    <owl:Class rdf:about="&transit;RouteFareRule">
+        <rdfs:label rdf:datatype="&xsd;string">RouteFareRule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&transit;FareRule"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Rule that defines the application of a Fare to a Route</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/transfers
+    <!-- http://www.guidj.com/ontologies/transit/Service -->
 
-<http://www.guidj.com/ontologies/transit/transfers> rdf:type owl:DatatypeProperty ;
-                                                    
-                                                    rdfs:domain <http://www.guidj.com/ontologies/transit/FareRule> ,
-                                                                <http://www.guidj.com/ontologies/transit/FareTransfer> ;
-                                                    
-                                                    rdfs:range xsd:integer .
+    <owl:Class rdf:about="&transit;Service">
+        <rdfs:label rdf:datatype="&xsd;string">Service</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Operating schedule for a Route. Defines dates in which the service runs, and any exceptions</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/ServicePeriod -->
 
-###  http://www.guidj.com/ontologies/transit/url
+    <owl:Class rdf:about="&transit;ServicePeriod">
+        <rdfs:label rdf:datatype="&xsd;string">ServicePeriod</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&transit;Period"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Date range for which a Service operates</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/url> rdf:type owl:DatatypeProperty ;
-                                              
-                                              rdfs:domain <http://www.guidj.com/ontologies/transit/Agency> ,
-                                                          <http://www.guidj.com/ontologies/transit/Publisher> ;
-                                              
-                                              rdfs:range xsd:anyURI .
 
+    <!-- http://www.guidj.com/ontologies/transit/Shape -->
 
+    <owl:Class rdf:about="&transit;Shape">
+        <rdfs:label rdf:datatype="&xsd;string">Shape</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Represents a map shape, with a sequnce of a Shape Points. Used to visualize Routes</rdfs:comment>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/version
 
-<http://www.guidj.com/ontologies/transit/version> rdf:type owl:DatatypeProperty ;
-                                                  
-                                                  rdfs:domain <http://www.guidj.com/ontologies/transit/Feed> ;
-                                                  
-                                                  rdfs:range xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/ShapePoint -->
 
+    <owl:Class rdf:about="&transit;ShapePoint">
+        <rdfs:label rdf:datatype="&xsd;string">ShapePoint</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Geopgrahical point, with a given location, in a seuqnce of Shape Points that make up Shape on a map</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/Station -->
 
+    <owl:Class rdf:about="&transit;Station">
+        <rdfs:label rdf:datatype="&xsd;string">Station</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A physical infrastructure that may house one of more Stops</rdfs:comment>
+    </owl:Class>
+    
 
-#################################################################
-#
-#    Classes
-#
-#################################################################
 
+    <!-- http://www.guidj.com/ontologies/transit/Stop -->
 
-###  http://www.guidj.com/ontologies/transit/Agency
+    <owl:Class rdf:about="&transit;Stop">
+        <rdfs:label rdf:datatype="&xsd;string">Stop</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A physical Stop for transport type, e.g. bus stop, train stop.</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/Agency> rdf:type owl:Class ;
-                                                 
-                                                 rdfs:label "Agency"^^xsd:string ;
-                                                 
-                                                 rdfs:comment "An organisation that operates a Route"^^xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/StopPoint -->
 
+    <owl:Class rdf:about="&transit;StopPoint">
+        <rdfs:label rdf:datatype="&xsd;string">StopPoint</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Entity that represents a stop schedule for a Stop Sequence, at specified Stop. Arrival and departure time can be specified, if a trip does not run a frequency.</rdfs:comment>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/BicycleAccessibility
 
-<http://www.guidj.com/ontologies/transit/BicycleAccessibility> rdf:type owl:Class ;
-                                                               
-                                                               rdfs:label "BicycleAccessibility"^^xsd:string ;
-                                                               
-                                                               rdfs:comment "Type of wheelchair accessibility provided by an entity"^^xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/StopSequence -->
 
+    <owl:Class rdf:about="&transit;StopSequence">
+        <rdfs:label rdf:datatype="&xsd;string">StopSequence</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">An entity that represents a sequence of stop points for a Trip</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/Fare
+    <!-- http://www.guidj.com/ontologies/transit/Transfer -->
 
-<http://www.guidj.com/ontologies/transit/Fare> rdf:type owl:Class ;
-                                               
-                                               rdfs:label "Fare"^^xsd:string ;
-                                               
-                                               rdfs:comment "Represents an admission entry for the usage of a service. It may apply to Zones, or Routes"^^xsd:string .
+    <owl:Class rdf:about="&transit;Transfer">
+        <rdfs:label rdf:datatype="&xsd;string">Transfer</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">An organization that provides services for routes on a given schedule</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/Transport -->
 
-###  http://www.guidj.com/ontologies/transit/FarePricing
+    <owl:Class rdf:about="&transit;Transport">
+        <rdfs:label rdf:datatype="&xsd;string">Transport</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A type of transport machinery, e.g. bus, train</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/FarePricing> rdf:type owl:Class ;
-                                                      
-                                                      rdfs:label "FarePricing"^^xsd:string ;
-                                                      
-                                                      rdfs:comment "Pricing of a fare ticket"^^xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/Trip -->
 
+    <owl:Class rdf:about="&transit;Trip">
+        <rdfs:label rdf:datatype="&xsd;string">Trip</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A journey from a starting Stop Point to another, where passengers need not transfer, under a Route. Usually represents a journey from the starting point of a route to its end, and the reverse journey</rdfs:comment>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/FareRule
 
-<http://www.guidj.com/ontologies/transit/FareRule> rdf:type owl:Class ;
-                                                   
-                                                   rdfs:label "FareRule"^^xsd:string ;
-                                                   
-                                                   rdfs:comment "Rule that defines how a fare is applied"^^xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/ValidityPeriod -->
 
+    <owl:Class rdf:about="&transit;ValidityPeriod">
+        <rdfs:label rdf:datatype="&xsd;string">ValidityPeriod</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&transit;Period"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An abstract entity that represents the validity period of an entity with an start date and end date</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/FareTransfer
+    <!-- http://www.guidj.com/ontologies/transit/WeekdayAvailability -->
 
-<http://www.guidj.com/ontologies/transit/FareTransfer> rdf:type owl:Class ;
-                                                       
-                                                       rdfs:label "FareTransfer"^^xsd:string ;
-                                                       
-                                                       rdfs:comment "Transfer rules/properties for a Fare"^^xsd:string .
+    <owl:Class rdf:about="&transit;WeekdayAvailability">
+        <rdfs:label rdf:datatype="&xsd;string">WeekdayAvailability</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Define avaiability of a Service on a given Weekday</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/WheelchairAccessibility -->
 
-###  http://www.guidj.com/ontologies/transit/Feed
+    <owl:Class rdf:about="&transit;WheelchairAccessibility">
+        <rdfs:label rdf:datatype="&xsd;string">WheelchairAccessiblity</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">Type of wheelchair accessibility provided by an entity</rdfs:comment>
+    </owl:Class>
+    
 
-<http://www.guidj.com/ontologies/transit/Feed> rdf:type owl:Class ;
-                                               
-                                               rdfs:label "Feed"^^xsd:string ;
-                                               
-                                               rdfs:comment "A GTFS feed"^^xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/Zone -->
 
+    <owl:Class rdf:about="&transit;Zone">
+        <rdfs:label rdf:datatype="&xsd;string">Zone</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A geographical area that constitutes an independent operating region for routes</rdfs:comment>
+    </owl:Class>
+    
 
-###  http://www.guidj.com/ontologies/transit/FinalShapePoint
 
-<http://www.guidj.com/ontologies/transit/FinalShapePoint> rdf:type owl:Class ;
-                                                          
-                                                          rdfs:label "FinalShapePoint"^^xsd:string ;
-                                                          
-                                                          rdfs:subClassOf <http://www.guidj.com/ontologies/transit/ShapePoint> .
+    <!-- http://www.guidj.com/ontologies/transit/ZoneCrossFareRule -->
 
+    <owl:Class rdf:about="&transit;ZoneCrossFareRule">
+        <rdfs:label rdf:datatype="&xsd;string">ZoneCrossFareRule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&transit;FareRule"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Rule that defines the application of a Fare to the transfer from one Zone to another</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/FinalStop
+    <!-- http://www.guidj.com/ontologies/transit/ZoneFareRule -->
 
-<http://www.guidj.com/ontologies/transit/FinalStop> rdf:type owl:Class ;
-                                                    
-                                                    rdfs:label "FinalStop"^^xsd:string ;
-                                                    
-                                                    rdfs:subClassOf <http://www.guidj.com/ontologies/transit/StopPoint> .
+    <owl:Class rdf:about="&transit;ZoneFareRule">
+        <rdfs:label rdf:datatype="&xsd;string">ZoneFareRule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&transit;FareRule"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Rule that defines the application of a Fare to a Zone</rdfs:comment>
+    </owl:Class>
+    
 
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  http://www.guidj.com/ontologies/transit/Frequency
+    
 
-<http://www.guidj.com/ontologies/transit/Frequency> rdf:type owl:Class ;
-                                                    
-                                                    rdfs:label "Frequency"^^xsd:string ;
-                                                    
-                                                    rdfs:comment "Represents the operating frequency of Trip. For trips where the Stop Points' arrival and departure time are not given, this is used to calculate when a transport should be at a stop on a given date"^^xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/Avaiable -->
 
+    <owl:NamedIndividual rdf:about="&transit;Avaiable">
+        <rdf:type rdf:resource="&transit;BicycleAllowance"/>
+        <rdf:type rdf:resource="&transit;WheelchairAccessibility"/>
+    </owl:NamedIndividual>
+    
 
-###  http://www.guidj.com/ontologies/transit/Location
 
-<http://www.guidj.com/ontologies/transit/Location> rdf:type owl:Class ;
-                                                   
-                                                   rdfs:label "Location"^^xsd:string ;
-                                                   
-                                                   rdfs:comment "Abstract entity that represents geopgrahical coordinates for an entity"^^xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/Bus -->
 
+    <owl:NamedIndividual rdf:about="&transit;Bus">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Bus. Used for short- and long-distance bus routes.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;Bus"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/OperatingAgencies
+    <!-- http://www.guidj.com/ontologies/transit/CableCar -->
 
-<http://www.guidj.com/ontologies/transit/OperatingAgencies> rdf:type owl:Class ;
-                                                            
-                                                            rdfs:label "OperatingAgencies"^^xsd:string ;
-                                                            
-                                                            rdfs:comment "A list entity with a set of Agencies that operate Routes published on a feed"^^xsd:string .
+    <owl:NamedIndividual rdf:about="&transit;CableCar">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Cable car. Used for street-level cable cars where the cable runs beneath the car.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;CableCar"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/Ferry -->
 
-###  http://www.guidj.com/ontologies/transit/PeriodException
+    <owl:NamedIndividual rdf:about="&transit;Ferry">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Ferry. Used for short- and long-distance boat service.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;Ferry"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
-<http://www.guidj.com/ontologies/transit/PeriodException> rdf:type owl:Class ;
-                                                          
-                                                          rdfs:label "PeriodException"^^xsd:string ;
-                                                          
-                                                          rdfs:comment "An exception rule to a Service period. Can be either to add or remove service on a given date"^^xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/Funicular -->
 
+    <owl:NamedIndividual rdf:about="&transit;Funicular">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Funicular. Any rail system designed for steep inclines.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;Funicular"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
-###  http://www.guidj.com/ontologies/transit/Publisher
 
-<http://www.guidj.com/ontologies/transit/Publisher> rdf:type owl:Class ;
-                                                    
-                                                    rdfs:label "Publisher"^^xsd:string ;
-                                                    
-                                                    rdfs:comment "Entity that publishes a Feed"^^xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/Gondola -->
 
+    <owl:NamedIndividual rdf:about="&transit;Gondola">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Gondola, Suspended cable car. Typically used for aerial cable cars where the car is suspended from the cable.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;Gondola"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/Route
+    <!-- http://www.guidj.com/ontologies/transit/Metro -->
 
-<http://www.guidj.com/ontologies/transit/Route> rdf:type owl:Class ;
-                                                
-                                                rdfs:label "Route"^^xsd:string ;
-                                                
-                                                rdfs:comment "A service connecting two Stop Points, with one or more trips in either direction"^^xsd:string .
+    <owl:NamedIndividual rdf:about="&transit;Metro">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Subway, Metro. Any underground rail system within a metropolitan area.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;Metro"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/NoTransfersPermitted -->
 
-###  http://www.guidj.com/ontologies/transit/RouteFareRule
+    <owl:NamedIndividual rdf:about="&transit;NoTransfersPermitted"/>
+    
 
-<http://www.guidj.com/ontologies/transit/RouteFareRule> rdf:type owl:Class ;
-                                                        
-                                                        rdfs:label "RouteFareRule"^^xsd:string ;
-                                                        
-                                                        rdfs:subClassOf <http://www.guidj.com/ontologies/transit/FareRule> ;
-                                                        
-                                                        rdfs:comment "Rule that defines the application of a Fare to a Route"^^xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/NotAvailable -->
 
+    <owl:NamedIndividual rdf:about="&transit;NotAvailable">
+        <rdf:type rdf:resource="&transit;BicycleAllowance"/>
+        <rdf:type rdf:resource="&transit;WheelchairAccessibility"/>
+    </owl:NamedIndividual>
+    
 
-###  http://www.guidj.com/ontologies/transit/Service
 
-<http://www.guidj.com/ontologies/transit/Service> rdf:type owl:Class ;
-                                                  
-                                                  rdfs:label "Service"^^xsd:string ;
-                                                  
-                                                  rdfs:comment "Operating schedule for a Route. Defines dates in which the service runs, and any exceptions"^^xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/Rail -->
 
+    <owl:NamedIndividual rdf:about="&transit;Rail">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Rail. Used for intercity or long-distance travel.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;Rail"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/ServicePeriod
+    <!-- http://www.guidj.com/ontologies/transit/Tram -->
 
-<http://www.guidj.com/ontologies/transit/ServicePeriod> rdf:type owl:Class ;
-                                                        
-                                                        rdfs:label "ServicePeriod"^^xsd:string ;
-                                                        
-                                                        rdfs:comment "Date range for which a Service operates"^^xsd:string .
+    <owl:NamedIndividual rdf:about="&transit;Tram">
+        <rdf:type rdf:resource="&transit;Transport"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <rdfs:comment>Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area.</rdfs:comment>
+        <owl:annotatedSource rdf:resource="&transit;Tram"/>
+        <owl:annotatedTarget rdf:resource="&transit;Transport"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
 
 
+    <!-- http://www.guidj.com/ontologies/transit/TransferOnce -->
 
-###  http://www.guidj.com/ontologies/transit/Shape
+    <owl:NamedIndividual rdf:about="&transit;TransferOnce"/>
+    
 
-<http://www.guidj.com/ontologies/transit/Shape> rdf:type owl:Class ;
-                                                
-                                                rdfs:label "Shape"^^xsd:string ;
-                                                
-                                                rdfs:comment "Represents a map shape, with a sequnce of a Shape Points. Used to visualize Routes"^^xsd:string .
 
+    <!-- http://www.guidj.com/ontologies/transit/TransferTwice -->
 
+    <owl:NamedIndividual rdf:about="&transit;TransferTwice"/>
+    
 
-###  http://www.guidj.com/ontologies/transit/ShapePoint
 
-<http://www.guidj.com/ontologies/transit/ShapePoint> rdf:type owl:Class ;
-                                                     
-                                                     rdfs:label "ShapePoint"^^xsd:string ;
-                                                     
-                                                     rdfs:comment "Geopgrahical point, with a given location, in a seuqnce of Shape Points that make up Shape on a map"^^xsd:string .
+    <!-- http://www.guidj.com/ontologies/transit/Unknown -->
 
+    <owl:NamedIndividual rdf:about="&transit;Unknown">
+        <rdf:type rdf:resource="&transit;BicycleAllowance"/>
+        <rdf:type rdf:resource="&transit;WheelchairAccessibility"/>
+    </owl:NamedIndividual>
+    
 
 
-###  http://www.guidj.com/ontologies/transit/Station
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-<http://www.guidj.com/ontologies/transit/Station> rdf:type owl:Class ;
-                                                  
-                                                  rdfs:label "Station"^^xsd:string ;
-                                                  
-                                                  rdfs:comment "A physical infrastructure that may house one of more Stops"^^xsd:string .
+    <rdf:Description rdf:about="http://vocab.gtfs.org/terms#routeType">
+        <rdfs:label>Route Type</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
 
 
 
-###  http://www.guidj.com/ontologies/transit/Stop
-
-<http://www.guidj.com/ontologies/transit/Stop> rdf:type owl:Class ;
-                                               
-                                               rdfs:label "Stop"^^xsd:string ;
-                                               
-                                               rdfs:comment "A physical Stop for transport type, e.g. bus stop, train stop."^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/StopPoint
-
-<http://www.guidj.com/ontologies/transit/StopPoint> rdf:type owl:Class ;
-                                                    
-                                                    rdfs:label "StopPoint"^^xsd:string ;
-                                                    
-                                                    rdfs:comment "Entity that represents a stop schedule for a Stop Sequence, at specified Stop. Arrival and departure time can be specified, if a trip does not run a frequency."^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/StopSequence
-
-<http://www.guidj.com/ontologies/transit/StopSequence> rdf:type owl:Class ;
-                                                       
-                                                       rdfs:label "StopSequence"^^xsd:string ;
-                                                       
-                                                       rdfs:comment "An entity that represents a sequence of stop points for a Trip"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Transfer
-
-<http://www.guidj.com/ontologies/transit/Transfer> rdf:type owl:Class ;
-                                                   
-                                                   rdfs:label "Transfer"^^xsd:string ;
-                                                   
-                                                   rdfs:comment "An organization that provides services for routes on a given schedule"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Transport
-
-<http://www.guidj.com/ontologies/transit/Transport> rdf:type owl:Class ;
-                                                    
-                                                    rdfs:label "Transport"^^xsd:string ;
-                                                    
-                                                    rdfs:comment "A type of transport machinery, e.g. bus, train"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Trip
-
-<http://www.guidj.com/ontologies/transit/Trip> rdf:type owl:Class ;
-                                               
-                                               rdfs:label "Trip"^^xsd:string ;
-                                               
-                                               rdfs:comment "A journey from a starting Stop Point to another, where passengers need not transfer, under a Route. Usually represents a journey from the starting point of a route to its end, and the reverse journey"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/ValidityPeriod
-
-<http://www.guidj.com/ontologies/transit/ValidityPeriod> rdf:type owl:Class ;
-                                                         
-                                                         rdfs:label "ValidityPeriod"^^xsd:string ;
-                                                         
-                                                         rdfs:comment "An abstract entity that represents the validity period of an entity with an start date and end date"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/WeekdayAvailability
-
-<http://www.guidj.com/ontologies/transit/WeekdayAvailability> rdf:type owl:Class ;
-                                                              
-                                                              rdfs:label "WeekdayAvailability"^^xsd:string ;
-                                                              
-                                                              rdfs:comment "Define avaiability of a Service on a given Weekday"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/WheelchairAccessibility
-
-<http://www.guidj.com/ontologies/transit/WheelchairAccessibility> rdf:type owl:Class ;
-                                                                  
-                                                                  rdfs:label "WheelchairAccessiblity"^^xsd:string ;
-                                                                  
-                                                                  rdfs:comment "Type of wheelchair accessibility provided by an entity"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Zone
-
-<http://www.guidj.com/ontologies/transit/Zone> rdf:type owl:Class ;
-                                               
-                                               rdfs:label "Zone"^^xsd:string ;
-                                               
-                                               rdfs:comment "A geographical area that constitutes an independent operating region for routes"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/ZoneCrossFareRule
-
-<http://www.guidj.com/ontologies/transit/ZoneCrossFareRule> rdf:type owl:Class ;
-                                                            
-                                                            rdfs:label "ZoneCrossFareRule"^^xsd:string ;
-                                                            
-                                                            rdfs:subClassOf <http://www.guidj.com/ontologies/transit/FareRule> ;
-                                                            
-                                                            rdfs:comment "Rule that defines the application of a Fare to the transfer from one Zone to another"^^xsd:string .
-
-
-
-###  http://www.guidj.com/ontologies/transit/ZoneFareRule
-
-<http://www.guidj.com/ontologies/transit/ZoneFareRule> rdf:type owl:Class ;
-                                                       
-                                                       rdfs:label "ZoneFareRule"^^xsd:string ;
-                                                       
-                                                       rdfs:subClassOf <http://www.guidj.com/ontologies/transit/FareRule> ;
-                                                       
-                                                       rdfs:comment "Rule that defines the application of a Fare to a Zone"^^xsd:string .
-
-
-
-
-
-#################################################################
-#
-#    Individuals
-#
-#################################################################
-
-
-###  http://www.guidj.com/ontologies/transit/Bus
-
-<http://www.guidj.com/ontologies/transit/Bus> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                       owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Bus. Used for short- and long-distance bus routes." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/Bus> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/CableCar
-
-<http://www.guidj.com/ontologies/transit/CableCar> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                            owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Cable car. Used for street-level cable cars where the cable runs beneath the car." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/CableCar> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Ferry
-
-<http://www.guidj.com/ontologies/transit/Ferry> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                         owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Ferry. Used for short- and long-distance boat service." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/Ferry> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Funicular
-
-<http://www.guidj.com/ontologies/transit/Funicular> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                             owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Funicular. Any rail system designed for steep inclines." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/Funicular> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Gondola
-
-<http://www.guidj.com/ontologies/transit/Gondola> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                           owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Gondola, Suspended cable car. Typically used for aerial cable cars where the car is suspended from the cable." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/Gondola> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Metro
-
-<http://www.guidj.com/ontologies/transit/Metro> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                         owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Subway, Metro. Any underground rail system within a metropolitan area." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/Metro> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/NoTransfersPermitted
-
-<http://www.guidj.com/ontologies/transit/NoTransfersPermitted> rdf:type owl:NamedIndividual .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Rail
-
-<http://www.guidj.com/ontologies/transit/Rail> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                        owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Rail. Used for intercity or long-distance travel." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/Rail> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/Tram
-
-<http://www.guidj.com/ontologies/transit/Tram> rdf:type <http://www.guidj.com/ontologies/transit/Transport> ,
-                                                        owl:NamedIndividual .
-[ rdf:type owl:Axiom ;
-  rdfs:comment "Tram, Streetcar, Light rail. Any light rail or street level system within a metropolitan area." ;
-  owl:annotatedSource <http://www.guidj.com/ontologies/transit/Tram> ;
-  owl:annotatedTarget <http://www.guidj.com/ontologies/transit/Transport> ;
-  owl:annotatedProperty rdf:type
-] .
-
-
-
-###  http://www.guidj.com/ontologies/transit/TransferOnce
-
-<http://www.guidj.com/ontologies/transit/TransferOnce> rdf:type owl:NamedIndividual .
-
-
-
-###  http://www.guidj.com/ontologies/transit/TransferTwice
-
-<http://www.guidj.com/ontologies/transit/TransferTwice> rdf:type owl:NamedIndividual .
-
-
-
-
-
-#################################################################
-#
-#    Annotations
-#
-#################################################################
-
-
-<http://vocab.gtfs.org/terms#routeType> rdfs:label "Route Type" .
-
-
-
-
-###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 
