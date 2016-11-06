@@ -1,2 +1,2 @@
 # transit
-GTFS based transportation ontology
+[GTFS](https://developers.google.com/transit/gtfs/) based transportation ontology
