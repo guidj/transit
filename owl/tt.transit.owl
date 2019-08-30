@@ -906,7 +906,7 @@
 
     <owl:Class rdf:about="http://thinkingthread.com/ontologies/transit#ShapePoint">
         <rdfs:label rdf:datatype="&xsd;string">ShapePoint</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Geopgrahical point, with a given location, in a seuqnce of Shape Points that make up Shape on a map</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string">Geopgrahical point, with a given location, in a sequence of Shape Points that make up Shape on a map</rdfs:comment>
     </owl:Class>
     
 
